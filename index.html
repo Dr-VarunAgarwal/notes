@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Notes — lucidité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,400;1,9..144,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #1b2119;
+    --ink-soft: #242c22;
+    --paper: #f1e7d2;
+    --paper-soft: #e6d9bd;
+    --gold: #c29a4b;
+    --oxblood: #7b3131;
+    --text-on-paper: #2a241c;
+    --muted-on-paper: rgba(42,36,28,0.55);
+    --max: 760px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--text-on-paper);
+    font-family:"Space Mono", monospace;
+    min-height:100vh;
+  }
+
+  header.site-header{
+    max-width:var(--max); margin:0 auto;
+    padding:2.5rem 1.5rem 1.5rem;
+    display:flex; align-items:baseline; justify-content:space-between;
+    border-bottom:1px solid rgba(42,36,28,0.16);
+  }
+  .wordmark{
+    font-family:"Fraunces", serif; font-weight:480;
+    font-size:1.15rem; margin:0; letter-spacing:-0.01em;
+  }
+  nav.site-nav a{
+    color:var(--text-on-paper); text-decoration:none;
+    font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
+    margin-left:1.25rem; border-bottom:1px solid transparent;
+  }
+  nav.site-nav a:hover{ border-bottom-color:var(--oxblood); }
+
+  main{max-width:var(--max); margin:0 auto; padding:3rem 1.5rem 6rem;}
+
+  h1.title{
+    font-family:"Fraunces", serif; font-weight:340; font-optical-sizing:auto;
+    font-size:clamp(2rem, 6vw, 2.6rem); line-height:1.08; margin:0 0 0.5rem;
+    color:var(--ink);
+  }
+  .intro{
+    color:var(--muted-on-paper); font-size:0.85rem; line-height:1.7;
+    max-width:52ch; margin:0 0 3rem;
+  }
+
+  .entry-list{ list-style:none; margin:0; padding:0; }
+  .entry{
+    display:block; padding:1.5rem 0; border-top:1px solid rgba(42,36,28,0.14);
+    text-decoration:none; color:inherit;
+  }
+  .entry:last-child{ border-bottom:1px solid rgba(42,36,28,0.14); }
+  .entry-name{
+    font-family:"Fraunces", serif; font-weight:500; font-size:1.3rem;
+    color:var(--ink); margin:0 0 0.35rem;
+  }
+  .entry.is-live:hover .entry-name{ color:var(--oxblood); }
+  .entry-blurb{ font-size:0.78rem; color:var(--muted-on-paper); line-height:1.6; }
+  .entry.is-draft{ opacity:0.5; cursor:default; }
+  .entry-tag{
+    display:inline-block; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:0.4rem;
+  }
+
+  footer{
+    max-width:var(--max); margin:0 auto; padding:2rem 1.5rem 4rem;
+    color:var(--muted-on-paper); font-size:0.7rem; letter-spacing:0.04em;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <p class="wordmark">lucidité</p>
+  <nav class="site-nav">
+    <a href="https://blog.varunagarwal.com">HOME</a>
+    <a href="https://books.varunagarwal.com">BOOKS</a>
+    <a href="https://wander.varunagarwal.com">FIELD NOTES</a>
+  </nav>
+</header>
+
+<main>
+  <h1 class="title">Notes</h1>
+  <p class="intro">Writeups that don't fit anywhere else — gadgets, projects, whatever I've been messing with.</p>
+
+  <ul class="entry-list" id="entries"></ul>
+</main>
+
+<footer>Notes, added as they happen</footer>
+
+<script>
+  /* To add an entry: copy an object below, set status to 'live' once
+     that slug/ folder exists with its own index.html. */
+  const ENTRIES = [
+    {name:'E-inked.', slug:'e-inked', status:'live', blurb:'Four e-ink devices I actually use — XTEink X4, Kindle Colorsoft, Bloomin8 photo frame, TRMNL X.'},
+  ];
+
+  const list = document.getElementById('entries');
+  list.innerHTML = ENTRIES.map(e => {
+    const isLive = e.status === 'live';
+    const inner = `
+      ${!isLive ? '<span class="entry-tag">Coming soon</span><br>' : ''}
+      <p class="entry-name">${e.name}</p>
+      <p class="entry-blurb">${e.blurb}</p>`;
+    return isLive
+      ? `<a class="entry is-live" href="${e.slug}/">${inner}</a>`
+      : `<div class="entry is-draft">${inner}</div>`;
+  }).join('');
+</script>
+
+</body>
+</html>

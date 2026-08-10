@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>E-inked. — lucidité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,400;1,9..144,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #1b2119;
+    --paper: #f1e7d2;
+    --paper-soft: #e6d9bd;
+    --gold: #c29a4b;
+    --oxblood: #7b3131;
+    --text-on-paper: #2a241c;
+    --muted-on-paper: rgba(42,36,28,0.55);
+    --max: 640px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--text-on-paper);
+    font-family:"Space Mono", monospace;
+    min-height:100vh;
+  }
+
+  header.site-header{
+    max-width:var(--max); margin:0 auto;
+    padding:2.5rem 1.5rem 1.5rem;
+    display:flex; align-items:baseline; justify-content:space-between;
+    border-bottom:1px solid rgba(42,36,28,0.16);
+  }
+  .wordmark{
+    font-family:"Fraunces", serif; font-weight:480;
+    font-size:1.15rem; margin:0; letter-spacing:-0.01em;
+  }
+  nav.site-nav a{
+    color:var(--text-on-paper); text-decoration:none;
+    font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
+    margin-left:1.25rem; border-bottom:1px solid transparent;
+  }
+  nav.site-nav a:hover{ border-bottom-color:var(--oxblood); }
+
+  main{max-width:var(--max); margin:0 auto; padding:3rem 1.5rem 6rem;}
+
+  .eyebrow{
+    font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--muted-on-paper); margin-bottom:0.75rem;
+  }
+  .eyebrow a{ color:var(--oxblood); text-decoration:none; }
+  .eyebrow a:hover{ text-decoration:underline; }
+
+  h1.title{
+    font-family:"Fraunces", serif; font-weight:340; font-optical-sizing:auto;
+    font-size:clamp(2rem, 6vw, 2.6rem); line-height:1.08; margin:0 0 1.75rem;
+    color:var(--ink);
+  }
+
+  figure{ margin:0 0 2.25rem; }
+  figure img{
+    width:100%; height:auto; display:block;
+    border-radius:1px;
+    box-shadow: 3px 4px 0 0 var(--paper-soft), 6px 8px 18px rgba(0,0,0,0.18);
+  }
+  figcaption{
+    font-size:0.72rem; color:var(--muted-on-paper); margin-top:0.6rem; line-height:1.5;
+  }
+
+  h2.device{
+    font-family:"Fraunces", serif; font-weight:500; font-style:italic;
+    font-size:1.3rem; color:var(--oxblood);
+    margin:3rem 0 1rem; padding-top:2rem; border-top:1px solid rgba(42,36,28,0.14);
+  }
+  main > h2.device:first-of-type{ border-top:none; padding-top:0; margin-top:0; }
+
+  p{ font-size:0.88rem; line-height:1.75; margin:0 0 1.1rem; }
+  p a{ color:var(--oxblood); }
+  p code{ background:var(--paper-soft); padding:0.1em 0.35em; border-radius:2px; font-size:0.85em; }
+
+  footer{
+    max-width:var(--max); margin:0 auto; padding:2rem 1.5rem 4rem;
+    color:var(--muted-on-paper); font-size:0.7rem; letter-spacing:0.04em;
+    border-top:1px solid rgba(42,36,28,0.14);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <p class="wordmark">lucidité</p>
+  <nav class="site-nav">
+    <a href="https://blog.varunagarwal.com">HOME</a>
+    <a href="https://books.varunagarwal.com">BOOKS</a>
+    <a href="https://wander.varunagarwal.com">FIELD NOTES</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow"><a href="../">← Notes</a></p>
+  <h1 class="title">E-inked.</h1>
+
+  <figure>
+    <img src="img/xteink-01-cafe-mondegar.jpg" alt="XTEink X4 at Cafe Mondegar, Mumbai" onerror="this.closest('figure').style.display='none'">
+    <figcaption>With the XTE eink at Cafe Mondegar in Mumbai, 2026.</figcaption>
+  </figure>
+
+  <h2 class="device">XTEink X4.</h2>
+  <figure>
+    <img src="img/xteink-02.jpg" alt="XTEink X4" onerror="this.closest('figure').style.display='none'">
+  </figure>
+  <p>My review almost matches most of the people on the internet.</p>
+  <p>Tiny device. Does not fit perfectly on most Magsafe cases.</p>
+  <p>Extremely handy, crisp display with seemingly infinite battery.</p>
+  <p>Rave reviews from people who've seen me carry it around as a gadget. E-ink still throws people off several times as it still doesn't seem mainstream in daily life.</p>
+  <p>Imported from Thailand.</p>
+
+  <h2 class="device">Kindle Colorsoft.</h2>
+  <figure>
+    <img src="img/kindle-colorsoft-01.jpg" alt="Kindle Colorsoft" onerror="this.closest('figure').style.display='none'">
+  </figure>
+  <p>Yes. We all know about the muted colours. I like colours. It seems to have a pallete and I guess it works that way. In most other aspects it is like a usual Kindle e-reader.</p>
+  <figure>
+    <img src="img/kindle-colorsoft-02.jpg" alt="Kindle Colorsoft" onerror="this.closest('figure').style.display='none'">
+  </figure>
+  <p>Handy. Though still not sure how the Amazon walls will close down on this device with time.</p>
+  <p>Thing to note. Audible does not work in India on Kindle devices.</p>
+  <p>Brought from DXB.</p>
+
+  <h2 class="device">Bloomin8 photo frame.</h2>
+  <figure>
+    <img src="img/bloomin8-01.jpg" alt="Bloomin8 photo frame" onerror="this.closest('figure').style.display='none'">
+  </figure>
+  <p>I love this device. It's pretty expensive to be honest and I never saw them stock the 5.7" size on their website again after the kickstarter, so I'm not sure if it's actually available anymore.</p>
+  <p>I set mine to show a quote in the morning and a picture in the evenings. App is reasonably good.</p>
+  <figure>
+    <img src="img/bloomin8-02.jpg" alt="Bloomin8 photo frame" onerror="this.closest('figure').style.display='none'">
+  </figure>
+  <p>Hardware: Well. I feel the colours might not be AS bright and brilliant as I'd probably like them to be, but it works well to give a printed photo frame effect.</p>
+
+  <h2 class="device">TRMNL X.</h2>
+  <figure>
+    <img src="img/trmnl-x-01.jpg" alt="TRMNL X" onerror="this.closest('figure').style.display='none'">
+  </figure>
+  <p>Black sheep of the lot. I have a few complaints. No hardware buttons at all.</p>
+  <p>The reset/flash methods are rather weird (rotating the puck in certain directions over the back) and is unlike anything I've ever seen. Although the transparent back on mine is fun to see and I imagine it's triggering certain switches with the magnetic puck. Any way, I guess some bad hardware decisions under the time constraints the developers seemed to be in.</p>
+  <p>It is great as a daily overview device. I love getting an RSS feed on the device, as do I like the mashups in the device. I do not like the refresh time, which I'm not sure if it's a server issue or a device issue. Either way, the faster refresh rate is locked behind a paywall and I honestly don't care too much about it either way. What I would have liked though would have been some more control over what gets displayed and to choose to switch over to a different plugin when I want, as well as a faster refresh rate in general. I mean, AFAIK the next screen is supposed to be preloaded, and I'm not quite sure why it doesn't work like that.</p>
+</main>
+
+<footer>lucidité — notes</footer>
+
+</body>
+</html>
