@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Whose idea is it anyway? — Conversations — lucidité</title>
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="../../favicon-512.png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,400;1,9..144,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #1b2119;
+    --ink-soft: #242c22;
+    --paper: #f1e7d2;
+    --paper-soft: #e6d9bd;
+    --gold: #c29a4b;
+    --oxblood: #7b3131;
+    --text-on-paper: #2a241c;
+    --muted-on-paper: rgba(42,36,28,0.55);
+    --max: 640px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--text-on-paper);
+    font-family:"Space Mono", monospace;
+    min-height:100vh;
+  }
+
+  header.site-header{
+    max-width:var(--max); margin:0 auto;
+    padding:2.5rem 1.5rem 1.5rem;
+    display:flex; align-items:baseline; justify-content:space-between;
+    border-bottom:1px solid rgba(42,36,28,0.16);
+  }
+  .wordmark{
+    font-family:"Fraunces", serif; font-weight:480;
+    font-size:1.15rem; margin:0; letter-spacing:-0.01em;
+    color:inherit; text-decoration:none;
+  }
+  nav.site-nav a{
+    color:var(--text-on-paper); text-decoration:none;
+    font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
+    margin-left:1.25rem; border-bottom:1px solid transparent;
+  }
+  nav.site-nav a:hover{ border-bottom-color:var(--oxblood); }
+
+  main{max-width:var(--max); margin:0 auto; padding:3rem 1.5rem 6rem;}
+
+  .breadcrumb{
+    font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold); text-decoration:none; display:inline-block; margin-bottom:1.5rem;
+  }
+  .breadcrumb:hover{ color:var(--oxblood); }
+
+  .eyebrow{
+    font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--muted-on-paper); margin:0 0 0.6rem;
+  }
+  h1.title{
+    font-family:"Fraunces", serif; font-weight:400; font-style:italic;
+    font-size:clamp(2rem, 7vw, 2.9rem); line-height:1.08; margin:0 0 2.2rem;
+    color:var(--ink);
+  }
+
+  article{ font-size:0.92rem; line-height:1.85; }
+  article p{ margin:0 0 1.4rem; }
+  .questions{
+    margin:0 0 1.4rem; padding-left:1.1rem;
+    border-left:2px solid var(--gold);
+    font-style:italic; color:var(--ink-soft);
+  }
+  .questions p{ margin:0 0 0.7rem; }
+  .questions p:last-child{ margin-bottom:0; }
+
+  .chart-wrap{
+    margin:2.4rem 0; overflow-x:auto;
+    border:1px solid rgba(42,36,28,0.2);
+    background:var(--paper-soft);
+  }
+  table{ border-collapse:collapse; width:100%; font-size:0.76rem; }
+  th, td{
+    text-align:left; padding:0.7rem 0.8rem;
+    border-bottom:1px solid rgba(42,36,28,0.14);
+    vertical-align:top;
+  }
+  thead th{
+    font-family:"Fraunces", serif; font-weight:600; font-size:0.72rem;
+    letter-spacing:0.04em; text-transform:uppercase; color:var(--ink);
+    border-bottom:1.5px solid var(--ink);
+  }
+  tbody tr:last-child td{ border-bottom:none; }
+  td:first-child{ font-family:"Fraunces", serif; font-weight:600; color:var(--oxblood); width:2.2rem; }
+  td:nth-child(2){ font-weight:700; white-space:nowrap; color:var(--ink); }
+  .chart-caption{
+    font-size:0.68rem; color:var(--muted-on-paper); text-align:right;
+    padding:0.5rem 0.8rem; border-top:1px solid rgba(42,36,28,0.14);
+  }
+
+  .declaration-box{
+    margin:2.6rem 0; padding:1.3rem 1.4rem;
+    background:var(--paper-soft); border:1px dashed var(--oxblood);
+  }
+  .declaration-box .label{
+    font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--oxblood); margin:0 0 0.5rem;
+  }
+  .declaration-box .value{
+    font-family:"Fraunces", serif; font-style:italic; font-size:1rem;
+    color:var(--muted-on-paper);
+  }
+
+  footer{
+    max-width:var(--max); margin:0 auto; padding:2rem 1.5rem 4rem;
+    color:var(--muted-on-paper); font-size:0.7rem; letter-spacing:0.04em;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
+  <nav class="site-nav">
+    <a href="https://blog.varunagarwal.com">HOME</a>
+    <a href="../../">NOTES</a>
+    <a href="https://contact.varunagarwal.com">CONTACT</a>
+  </nav>
+</header>
+
+<main>
+  <a class="breadcrumb" href="../">← Conversations</a>
+  <p class="eyebrow">Conversations — 01 — Ethical declaration</p>
+  <h1 class="title">Whose idea is it anyway?</h1>
+
+  <article>
+    <p>How much AI is involved in the making of this project:</p>
+
+    <p>Interacting with ridiculous math applied philosophy, sand, metal and electricity fashioned into a piece of technology — AI — has brought us new moral and ethical questions.</p>
+
+    <p>How much use of AI is okay? Is this complete AI slop? Where was the human lazing off?</p>
+
+    <p>I decided to have a declaration attached to my projects where I type in, word by word, how much AI contributed — as per MY assessment.</p>
+
+    <p>I had the question — and the search for my questions led to more questions — some of them raised by the LLM itself. It also gave me ideas for more questions. Ideas to create.</p>
+
+    <div class="questions">
+      <p>So where does authorship reside?</p>
+      <p>Can you call this an AI generated video, or should the answer be a bit more nuanced?</p>
+      <p>Is there a distinction between creative AI and technical AI?</p>
+    </div>
+
+    <p>Here is a suggested chart — generated by an LLM. I asked for a Likert chart of human–AI involvement, and here's what I got.</p>
+
+    <div class="chart-wrap">
+      <table>
+        <thead>
+          <tr><th>Score</th><th>Label</th><th>Definition</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>No AI</td><td>No AI used in the creation of the work.</td></tr>
+          <tr><td>2</td><td>AI Utility</td><td>AI used only for mechanical/technical tasks: transcription, spellcheck, cleanup, formatting, search assistance, etc.</td></tr>
+          <tr><td>3</td><td>AI-Assisted</td><td>AI helped with brainstorming, research, organization, or iteration, but the human independently determines the creative substance.</td></tr>
+          <tr><td>4</td><td>AI-Augmented</td><td>AI contributes ideas, analysis, alternatives, or intermediate creative material that meaningfully influences the final work. Human remains the primary author.</td></tr>
+          <tr><td>5</td><td>AI-Collaborative</td><td>AI substantially participates in developing the argument, narrative, writing, visual concept, or other core creative components. Final work is jointly shaped through human–AI interaction.</td></tr>
+          <tr><td>6</td><td>AI-Directed</td><td>AI generates substantial portions of the final creative artifact. Human primarily provides direction, selection, editing, and curation.</td></tr>
+          <tr><td>7</td><td>AI-Generated</td><td>AI produces most of the substantive creative artifact from relatively high-level human instructions, with human primarily acting as director/curator.</td></tr>
+        </tbody>
+      </table>
+      <div class="chart-caption">Likert chart — human/AI involvement, generated by an LLM on request</div>
+    </div>
+
+    <p>So. I'm going to declare a level of involvement using this nifty little chart, and of course we could argue about things, ignore things, or just engage with what we deem fit for our attention.</p>
+
+    <p>I mean — you could read a book and come up with an idea, or you might choose to step into realising its existence in a different form: a poem, a drawing, an art piece, a video, a paper airplane, a climb up the mountain, a decision. That's where I guess things morally stand? After all, even the worst AI slop would have begun with a human prompt, and whatever chain of events follows is just what happens.</p>
+
+    <p>I suppose at some level AI is pretty much a digitisation of the collective human knowledge. Yes, there's always going to be bias. But after all — it is us humans trying to live in this world and doing stuff humans should be expected to be doing.</p>
+
+    <div class="declaration-box">
+      <p class="label">Declared involvement for this piece</p>
+      <p class="value">— to be scored —</p>
+    </div>
+  </article>
+</main>
+
+<footer>Conversations, added as they happen</footer>
+
+</body>
+</html>

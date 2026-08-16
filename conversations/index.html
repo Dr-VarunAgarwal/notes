@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Notes — lucidité</title>
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Conversations — lucidité</title>
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="../favicon-512.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,400;1,9..144,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -52,6 +52,10 @@
 
   main{max-width:var(--max); margin:0 auto; padding:3rem 1.5rem 6rem;}
 
+  .eyebrow{
+    font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold); margin:0 0 0.6rem;
+  }
   h1.title{
     font-family:"Fraunces", serif; font-weight:340; font-optical-sizing:auto;
     font-size:clamp(2rem, 6vw, 2.6rem); line-height:1.08; margin:0 0 0.5rem;
@@ -92,38 +96,35 @@
   <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
   <nav class="site-nav">
     <a href="https://blog.varunagarwal.com">HOME</a>
-    <a href="https://books.varunagarwal.com">BOOKS</a>
-    <a href="https://wander.varunagarwal.com">FIELD NOTES</a>
+    <a href="../">NOTES</a>
     <a href="https://contact.varunagarwal.com">CONTACT</a>
   </nav>
 </header>
 
 <main>
-  <h1 class="title">Notes</h1>
-  <p class="intro">Writeups that don't fit anywhere else — gadgets, projects, whatever I've been messing with.</p>
+  <p class="eyebrow">Notes / Conversations</p>
+  <h1 class="title">Conversations</h1>
+  <p class="intro">Things I keep turning over out loud — questions I don't have a tidy answer to yet, written down mid-thought.</p>
 
   <ul class="entry-list" id="entries"></ul>
 </main>
 
-<footer>Notes, added as they happen</footer>
+<footer>Conversations, added as they happen</footer>
 
 <script>
-  /* To add an entry: copy an object below, set status to 'live' once
-     that slug/ folder exists with its own index.html. */
-  const ENTRIES = [
-    {name:"E-Ink'd", slug:'e-inked', status:'live', blurb:'Five e-ink devices I actually use — XTEink X4, Kindle Colorsoft, Bloomin8 photo frame, TRMNL X, Pebble Time 2.'},
-    {name:'Conversations', slug:'conversations', status:'live', blurb:"Things I keep turning over out loud. First up — whose idea is it anyway?"},
+  const TOPICS = [
+    {name:"Whose idea is it anyway?", slug:'whose-idea-is-it-anyway', status:'live', blurb:'An ethical declaration — trying to work out how much AI involvement is okay, and where authorship actually sits.'},
   ];
 
   const list = document.getElementById('entries');
-  list.innerHTML = ENTRIES.map(e => {
-    const isLive = e.status === 'live';
+  list.innerHTML = TOPICS.map(t => {
+    const isLive = t.status === 'live';
     const inner = `
       ${!isLive ? '<span class="entry-tag">Coming soon</span><br>' : ''}
-      <p class="entry-name">${e.name}</p>
-      <p class="entry-blurb">${e.blurb}</p>`;
+      <p class="entry-name">${t.name}</p>
+      <p class="entry-blurb">${t.blurb}</p>`;
     return isLive
-      ? `<a class="entry is-live" href="${e.slug}/">${inner}</a>`
+      ? `<a class="entry is-live" href="${t.slug}/">${inner}</a>`
       : `<div class="entry is-draft">${inner}</div>`;
   }).join('');
 </script>
