@@ -46,7 +46,7 @@
   nav.site-nav a{
     color:var(--text-on-paper); text-decoration:none;
     font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
-    margin-left:1.25rem; border-bottom:1px solid transparent;
+    margin-left:1.25rem; border-bottom:1px solid rgba(42,36,28,0.35);
   }
   nav.site-nav a:hover{ border-bottom-color:var(--oxblood); }
 
@@ -64,10 +64,16 @@
 
   .entry-list{ list-style:none; margin:0; padding:0; }
   .entry{
-    display:block; padding:1.5rem 0; border-top:1px solid rgba(42,36,28,0.14);
+    display:flex; gap:1rem; align-items:flex-start;
+    padding:1.5rem 0; border-top:1px solid rgba(42,36,28,0.14);
     text-decoration:none; color:inherit;
   }
   .entry:last-child{ border-bottom:1px solid rgba(42,36,28,0.14); }
+  .entry-cover{
+    width:84px; height:84px; flex:none; object-fit:cover;
+    border:1px solid rgba(42,36,28,0.2); background:var(--paper-soft);
+  }
+  .entry-body{ min-width:0; }
   .entry-name{
     font-family:"Fraunces", serif; font-weight:500; font-size:1.3rem;
     color:var(--ink); margin:0 0 0.35rem;
@@ -111,7 +117,7 @@
   /* To add an entry: copy an object below, set status to 'live' once
      that slug/ folder exists with its own index.html. */
   const ENTRIES = [
-    {name:"E-Ink'd", slug:'e-inked', status:'live', blurb:'Five e-ink devices I actually use — XTEink X4, Kindle Colorsoft, Bloomin8 photo frame, TRMNL X, Pebble Time 2.'},
+    {name:"E-Ink'd", slug:'e-inked', status:'live', cover:'e-inked/img/xteink-01-cafe-mondegar.jpg', blurb:'Five e-ink devices I actually use — XTEink X4, Kindle Colorsoft, Bloomin8 photo frame, TRMNL X, Pebble Time 2.'},
     {name:'Conversations', slug:'conversations', status:'live', blurb:"Things I keep turning over out loud. First up — whose idea is it anyway?"},
   ];
 
@@ -119,9 +125,12 @@
   list.innerHTML = ENTRIES.map(e => {
     const isLive = e.status === 'live';
     const inner = `
-      ${!isLive ? '<span class="entry-tag">Coming soon</span><br>' : ''}
-      <p class="entry-name">${e.name}</p>
-      <p class="entry-blurb">${e.blurb}</p>`;
+      ${e.cover ? `<img class="entry-cover" src="${e.cover}" alt="" loading="lazy">` : ''}
+      <div class="entry-body">
+        ${!isLive ? '<span class="entry-tag">Coming soon</span><br>' : ''}
+        <p class="entry-name">${e.name}</p>
+        <p class="entry-blurb">${e.blurb}</p>
+      </div>`;
     return isLive
       ? `<a class="entry is-live" href="${e.slug}/">${inner}</a>`
       : `<div class="entry is-draft">${inner}</div>`;
