@@ -10,152 +10,200 @@
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,400;1,9..144,500&family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480&family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --drawer: #FFDD9C;
-    --card: #FFF3D9;
-    --ink: #2b1608;
-    --ink-soft: rgba(43,22,8,0.62);
-    --gold: #F9B637;
-    --stamp: #E73F1E;
-    --accent2: #FB6C00;
-    --line: rgba(43,22,8,0.2);
-    --max: 780px;
+    --bg: #F5F5F5;
+    --ink: #0d0d0d;
+    --ink-soft: rgba(13,13,13,0.62);
+    --orange: #FF7F00;
+    --green: #2FAE5C;
+    --blue: #4E8FE8;
+    --line: rgba(13,13,13,0.15);
+    --max: 900px;
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html,body{margin:0;padding:0;}
   body{
-    background:
-      radial-gradient(ellipse at 10% -10%, rgba(42,32,24,0.06), transparent 45%),
-      var(--drawer);
+    background:var(--bg);
     color:var(--ink);
-    font-family:"Special Elite", monospace;
+    font-family:"Archivo", sans-serif;
     min-height:100vh;
   }
 
   header.site-header{
+    background:var(--ink); color:var(--bg);
+    padding:1.1rem 1.5rem;
+  }
+  .site-header-inner{
     max-width:var(--max); margin:0 auto;
-    padding:2.5rem 1.5rem 1.5rem;
-    display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:0.5rem 0;
-    border-bottom:2px solid var(--ink);
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.6rem 0;
   }
   .wordmark{
     font-family:"Fraunces", serif; font-weight:480; font-style:italic;
-    font-size:1.15rem; margin:0; letter-spacing:-0.01em;
-    color:inherit; text-decoration:none;
+    font-size:1.1rem; margin:0; letter-spacing:-0.01em;
+    color:var(--bg); text-decoration:none;
   }
+  nav.site-nav{ display:flex; gap:0.5rem; }
   nav.site-nav a{
-    color:var(--ink); text-decoration:none;
-    font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
-    margin-left:1.1rem; border-bottom:1px solid rgba(42,32,24,0.4);
+    display:inline-block;
+    color:var(--ink); text-decoration:none; background:var(--orange);
+    font-size:0.72rem; letter-spacing:0.02em; font-weight:700;
+    padding:0.4rem 0.9rem; border-radius:100px;
+    transition:filter .15s ease;
   }
-  nav.site-nav a:hover{ border-bottom-color:var(--stamp); color:var(--stamp); }
+  nav.site-nav a:nth-child(2){ background:var(--green); color:#fff; }
+  nav.site-nav a:nth-child(3){ background:var(--blue); color:#fff; }
+  nav.site-nav a:hover{ filter:brightness(1.1); }
 
-  main{max-width:var(--max); margin:0 auto; padding:3rem 1.5rem 6rem;}
-
+  .hero{
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(255,127,0,0.25), transparent 60%),
+      var(--ink);
+    padding:3.5rem 1.5rem 2.5rem;
+  }
+  .hero-inner{
+    max-width:var(--max); margin:0 auto;
+    display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
+  }
+  .badge{ width:84px; height:84px; flex:none; }
   .eyebrow{
-    font-size:0.66rem; letter-spacing:0.16em; text-transform:uppercase;
-    color:var(--gold); margin:0 0 0.7rem;
+    font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--orange); font-weight:700; margin:0 0 0.5rem;
   }
   h1.title{
-    font-family:"Fraunces", serif; font-weight:600; font-style:italic;
-    font-size:clamp(2.1rem, 6vw, 2.8rem); line-height:1.05; margin:0 0 0.6rem;
-    color:var(--ink);
-  }
-  .intro{
-    color:var(--ink-soft); font-size:0.82rem; line-height:1.75;
-    max-width:50ch; margin:0 0 3rem;
+    font-family:"Archivo Black", sans-serif;
+    font-size:clamp(2.6rem, 9vw, 4.6rem); line-height:0.95; margin:0;
+    color:var(--bg); letter-spacing:-0.01em;
   }
 
-  .drawer{ display:flex; flex-direction:column; gap:1.4rem; }
+  main{max-width:var(--max); margin:0 auto; padding:2.5rem 1.5rem 4rem;}
+
+  .intro{
+    color:var(--ink-soft); font-size:0.92rem; line-height:1.7;
+    max-width:56ch; margin:0 0 3rem;
+  }
+
+  .grid{
+    display:grid; grid-template-columns:1fr; gap:1.5rem;
+  }
+  @media(min-width:640px){ .grid{ grid-template-columns:1fr 1fr; } }
 
   .card{
-    position:relative;
-    display:flex; gap:1.1rem; align-items:flex-start;
-    background:var(--card);
-    border:1px solid var(--line);
-    box-shadow:3px 4px 0 rgba(42,32,24,0.16);
-    padding:1.3rem 1.3rem 1.4rem 2.5rem;
-    text-decoration:none; color:inherit;
-    transition:transform .18s ease, box-shadow .18s ease;
+    position:relative; display:block; text-decoration:none; color:inherit;
+    transition:transform .15s ease, opacity .15s ease;
   }
-  .card:nth-child(3n+1){ transform:rotate(-0.4deg); }
-  .card:nth-child(3n+2){ transform:rotate(0.3deg); }
-  .card:nth-child(3n+3){ transform:rotate(-0.15deg); }
-  .card.is-live:hover{ transform:translateY(-2px) rotate(0deg); box-shadow:4px 6px 0 rgba(42,32,24,0.22); }
-  .card.is-draft{ opacity:0.6; }
+  .card.is-live:hover{ transform:translateY(-3px); }
+  .card.is-draft{ opacity:0.55; }
 
-  .card::before{
-    content:""; position:absolute; top:50%; left:14px; transform:translateY(-50%);
-    width:11px; height:11px; border-radius:50%;
-    background:var(--drawer); border:1.5px solid var(--ink);
+  .tag{
+    display:inline-block; margin:0 0 0.6rem;
+    background:var(--orange); color:var(--ink);
+    font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; font-weight:700;
+    padding:4px 10px; border-radius:100px;
+  }
+  .tag.cat-essay{ background:var(--green); color:#fff; }
+  .tag.coming{ background:var(--line); color:var(--ink); }
+
+  .card-media{
+    aspect-ratio:4/3; width:100%; background:var(--ink);
+    background-size:cover; background-position:center;
+  }
+  .card-media.no-cover{ display:flex; align-items:center; justify-content:center; }
+  .card-media.no-cover::after{
+    content:"NO PLATE"; font-family:"Archivo Black", sans-serif; font-size:0.8rem;
+    color:rgba(245,245,245,0.3); letter-spacing:0.08em;
   }
 
-  .stamp{
-    position:absolute; top:-10px; right:12px;
-    font-family:"Special Elite", monospace; font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--stamp); border:1.5px solid var(--stamp); border-radius:3px;
-    padding:2px 8px; background:var(--card);
-    transform:rotate(-5deg); opacity:0.88;
-  }
-  .stamp.coming{ color:var(--gold); border-color:var(--gold); }
-
-  .card-cover{
-    width:74px; height:74px; flex:none; object-fit:cover;
-    border:3px solid #fdf8ea; box-shadow:0 1px 3px rgba(42,32,24,0.3);
-    transform:rotate(-2deg);
-  }
-  .card-body{ min-width:0; }
+  .card-body{ background:var(--ink); padding:1rem 1.2rem 1.2rem; }
   .card-name{
-    font-family:"Fraunces", serif; font-weight:600; font-size:1.25rem;
-    color:var(--ink); margin:0 0 0.4rem;
+    font-family:"Archivo Black", sans-serif; font-size:1.25rem;
+    letter-spacing:-0.005em;
+    color:var(--bg); margin:0 0 0.35rem; line-height:1.1;
   }
-  .card.is-live:hover .card-name{ color:var(--stamp); }
-  .card-blurb{ font-size:0.76rem; color:var(--ink-soft); line-height:1.65; }
+  .card.is-live:hover .card-name{ color:var(--orange); }
+  .card-meta{
+    font-family:"Fraunces", serif; font-style:italic; font-size:0.78rem;
+    color:rgba(245,245,245,0.55); margin:0 0 0.6rem;
+  }
+  .card-blurb{ font-size:0.8rem; color:rgba(245,245,245,0.75); line-height:1.6; }
+
+  .signoff{
+    text-align:center; font-family:"Fraunces", serif; font-style:italic;
+    color:var(--ink-soft); font-size:0.82rem; margin:3.5rem 0 0;
+  }
 
   footer{
-    max-width:var(--max); margin:0 auto; padding:2rem 1.5rem 4rem;
-    color:var(--ink-soft); font-size:0.68rem; letter-spacing:0.04em;
+    background:var(--ink); color:var(--bg);
+    padding:2.5rem 1.5rem 2rem; text-align:center;
+  }
+  footer .stamp-word{
+    font-family:"Archivo Black", sans-serif;
+    font-size:clamp(1.8rem, 6vw, 2.8rem); letter-spacing:-0.01em; margin:0 0 0.8rem;
+  }
+  footer .fine-print{
+    font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:rgba(245,245,245,0.55);
   }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
-  <nav class="site-nav">
-    <a href="https://books.varunagarwal.com">BOOKS</a>
-    <a href="https://wander.varunagarwal.com">WANDER</a>
-    <a href="https://contact.varunagarwal.com">CONTACT</a>
-  </nav>
+  <div class="site-header-inner">
+    <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
+    <nav class="site-nav">
+      <a href="https://books.varunagarwal.com">BOOKS</a>
+      <a href="https://wander.varunagarwal.com">WANDER</a>
+      <a href="https://contact.varunagarwal.com">CONTACT</a>
+    </nav>
+  </div>
 </header>
 
+<div class="hero">
+  <div class="hero-inner">
+    <img class="badge" src="img/grain-badge.png" alt="">
+    <div>
+      <p class="eyebrow">Archive / Notes</p>
+      <h1 class="title">Notes</h1>
+    </div>
+  </div>
+</div>
+
 <main>
-  <h1 class="title">Notes</h1>
   <p class="intro">Writeups that don't fit anywhere else — gadgets, projects, whatever I've been messing with. Filed as I go.</p>
 
-  <div class="drawer" id="entries"></div>
+  <div class="grid" id="entries"></div>
+
+  <p class="signoff">— end of shelf · more filed as it happens —</p>
 </main>
 
-<footer>Notes, catalogued as they happen</footer>
+<footer>
+  <div class="stamp-word">Notes</div>
+  <div class="fine-print">lucidité — catalogued as they happen</div>
+</footer>
 
 <script>
   /* To add an entry: copy an object below, set status to 'live' once
-     that slug/ folder exists with its own index.html. */
+     that slug/ folder exists with its own index.html.
+     category: 'gadget' (orange tag) or 'essay' (green tag) — purely visual grouping. */
   const ENTRIES = [
-    {name:"E-Ink'd", slug:'e-inked', status:'live', cover:'e-inked/img/xteink-01-cafe-mondegar.jpg', blurb:'Five e-ink devices I actually use — XTEink X4, Kindle Colorsoft, Bloomin8 photo frame, TRMNL X, Pebble Time 2.'},
-    {name:'Conversations', slug:'conversations', status:'live', blurb:"Things I keep turning over out loud. First up — whose idea is it anyway?"},
+    {name:"E-Ink'd", slug:'e-inked', status:'live', category:'gadget', cover:'e-inked/img/xteink-01-cafe-mondegar.jpg', blurb:'Five e-ink devices I actually use — XTEink X4, Kindle Colorsoft, Bloomin8 photo frame, TRMNL X, Pebble Time 2.'},
+    {name:'Conversations', slug:'conversations', status:'live', category:'essay', blurb:"Things I keep turning over out loud. First up — whose idea is it anyway?"},
   ];
 
   const list = document.getElementById('entries');
   list.innerHTML = ENTRIES.map(e => {
     const isLive = e.status === 'live';
+    const coverStyle = e.cover ? `background-image:url('${e.cover}');` : '';
+    const tagClass = !isLive ? 'coming' : (e.category === 'essay' ? 'cat-essay' : '');
+    const tagLabel = isLive ? (e.category === 'essay' ? 'Essay' : 'Gadget') : 'Coming soon';
     const inner = `
-      <span class="stamp ${isLive ? '' : 'coming'}">${isLive ? 'Filed' : 'Coming soon'}</span>
-      ${e.cover ? `<img class="card-cover" src="${e.cover}" alt="" loading="lazy">` : ''}
+      <div class="card-media ${e.cover ? '' : 'no-cover'}" style="${coverStyle}"></div>
       <div class="card-body">
+        <span class="tag ${tagClass}">${tagLabel}</span>
         <p class="card-name">${e.name}</p>
+        <p class="card-meta">Notes · Filed as I go</p>
         <p class="card-blurb">${e.blurb}</p>
       </div>`;
     return isLive
