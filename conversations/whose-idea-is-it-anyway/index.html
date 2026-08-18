@@ -10,70 +10,76 @@
 <link rel="icon" type="image/png" sizes="512x512" href="../../favicon-512.png">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,400;1,9..144,500&family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480&family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink: #2b1608;
-    --ink-soft: rgba(43,22,8,0.62);
-    --paper: #FFDD9C;
-    --paper-soft: #FFF3D9;
-    --gold: #F9B637;
-    --oxblood: #E73F1E;
-    --accent2: #FB6C00;
-    --text-on-paper: #2b1608;
-    --muted-on-paper: rgba(43,22,8,0.6);
+    --bg: #F5F5F5;
+    --ink: #0d0d0d;
+    --ink-soft: rgba(13,13,13,0.62);
+    --orange: #FF7F00;
+    --green: #2FAE5C;
+    --blue: #4E8FE8;
+    --line: rgba(13,13,13,0.15);
     --max: 640px;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:var(--paper);
-    color:var(--text-on-paper);
-    font-family:"Special Elite", monospace;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Archivo", sans-serif;
     min-height:100vh;
   }
 
   header.site-header{
+    background:var(--ink); color:var(--bg);
+    padding:1.1rem 1.5rem;
+  }
+  .site-header-inner{
     max-width:var(--max); margin:0 auto;
-    padding:2.5rem 1.5rem 1.5rem;
-    display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:0.5rem 0;
-    border-bottom:2px solid var(--ink);
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem 0;
   }
   .wordmark{
     font-family:"Fraunces", serif; font-weight:480; font-style:italic;
-    font-size:1.15rem; margin:0; letter-spacing:-0.01em;
-    color:inherit; text-decoration:none;
+    font-size:1.05rem; margin:0; letter-spacing:-0.01em;
+    color:var(--bg); text-decoration:none;
   }
+  nav.site-nav{ display:flex; gap:0.5rem; }
   nav.site-nav a{
-    color:var(--text-on-paper); text-decoration:none;
-    font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
-    margin-left:1.1rem; border-bottom:1px solid rgba(42,32,24,0.4);
+    display:inline-block;
+    color:var(--ink); text-decoration:none; background:var(--orange);
+    font-size:0.7rem; letter-spacing:0.02em; font-weight:700;
+    padding:0.38rem 0.85rem; border-radius:100px;
+    transition:filter .15s ease;
   }
-  nav.site-nav a:hover{ border-bottom-color:var(--oxblood); color:var(--oxblood); }
+  nav.site-nav a:nth-child(2){ background:var(--green); color:#fff; }
+  nav.site-nav a:nth-child(3){ background:var(--blue); color:#fff; }
+  nav.site-nav a:hover{ filter:brightness(1.1); }
 
-  main{max-width:var(--max); margin:0 auto; padding:3rem 1.5rem 6rem;}
-
+  .hero{ background:var(--ink); padding:2.5rem 1.5rem 2.5rem; }
+  .hero-inner{ max-width:var(--max); margin:0 auto; }
   .breadcrumb{
     font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--gold); text-decoration:none; display:inline-block; margin-bottom:1.5rem;
+    color:var(--orange); text-decoration:none; display:inline-block; margin-bottom:1.2rem; font-weight:700;
   }
-  .breadcrumb:hover{ color:var(--oxblood); }
-
-  .eyebrow{
-    font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--muted-on-paper); margin:0 0 0.6rem;
-  }
+  .breadcrumb:hover{ text-decoration:underline; }
   h1.title{
-    font-family:"Fraunces", serif; font-weight:400; font-style:italic;
-    font-size:clamp(2rem, 7vw, 2.9rem); line-height:1.08; margin:0 0 2.2rem;
-    color:var(--ink);
+    font-family:"Archivo Black", sans-serif;
+    font-size:clamp(2.1rem, 7vw, 2.9rem); line-height:1.02; margin:0 0 0.6rem;
+    color:var(--bg); letter-spacing:-0.01em;
+  }
+  .byline{
+    font-family:"Fraunces", serif; font-style:italic; font-size:1rem;
+    color:rgba(245,245,245,0.6); margin:0;
   }
 
-  article{ font-size:0.92rem; line-height:1.85; }
+  main{max-width:var(--max); margin:0 auto; padding:2.5rem 1.5rem 4rem;}
+
+  article{ font-size:0.94rem; line-height:1.8; }
   article p{ margin:0 0 1.4rem; }
   .questions{
     margin:0 0 1.4rem; padding-left:1.1rem;
-    border-left:2px solid var(--gold);
+    border-left:3px solid var(--orange);
     font-style:italic; color:var(--ink-soft);
   }
   .questions p{ margin:0 0 0.7rem; }
@@ -81,63 +87,76 @@
 
   .chart-wrap{
     margin:2.4rem 0; overflow-x:auto;
-    border:1px solid rgba(43,22,8,0.2);
-    background:var(--paper-soft);
+    border:1px solid var(--line);
   }
   table{ border-collapse:collapse; width:100%; font-size:0.76rem; }
   th, td{
     text-align:left; padding:0.7rem 0.8rem;
-    border-bottom:1px solid rgba(43,22,8,0.16);
+    border-bottom:1px solid var(--line);
     vertical-align:top;
   }
   thead th{
-    font-family:"Fraunces", serif; font-weight:600; font-size:0.72rem;
-    letter-spacing:0.04em; text-transform:uppercase; color:var(--ink);
-    border-bottom:1.5px solid var(--ink);
+    background:var(--ink); color:var(--bg);
+    font-family:"Archivo Black", sans-serif; font-weight:400; font-size:0.68rem;
+    letter-spacing:0.04em; text-transform:uppercase;
   }
   tbody tr:last-child td{ border-bottom:none; }
-  td:first-child{ font-family:"Fraunces", serif; font-weight:600; color:var(--oxblood); width:2.2rem; }
+  td:first-child{ font-family:"Archivo Black", sans-serif; color:var(--orange); width:2.2rem; }
   td:nth-child(2){ font-weight:700; white-space:nowrap; color:var(--ink); }
   .chart-caption{
-    font-size:0.68rem; color:var(--muted-on-paper); text-align:right;
-    padding:0.5rem 0.8rem; border-top:1px solid rgba(43,22,8,0.16);
+    font-size:0.68rem; color:var(--ink-soft); text-align:right;
+    padding:0.5rem 0.8rem; border-top:1px solid var(--line);
   }
 
   .declaration-box{
-    margin:2.6rem 0; padding:1.3rem 1.4rem;
-    background:var(--paper-soft); border:1px dashed var(--oxblood);
+    margin:2.6rem 0; padding:1.4rem 1.5rem;
+    background:var(--ink); border:1.5px dashed var(--orange);
   }
   .declaration-box .label{
-    font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--oxblood); margin:0 0 0.5rem;
+    font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700;
+    color:var(--orange); margin:0 0 0.6rem;
   }
   .declaration-box .value{
-    font-family:"Fraunces", serif; font-style:italic; font-size:1rem;
-    color:var(--muted-on-paper);
+    font-family:"Fraunces", serif; font-style:italic; font-size:1.02rem;
+    color:rgba(245,245,245,0.85);
   }
 
   footer{
-    max-width:var(--max); margin:0 auto; padding:2rem 1.5rem 4rem;
-    color:var(--muted-on-paper); font-size:0.7rem; letter-spacing:0.04em;
+    background:var(--ink); color:var(--bg);
+    padding:2.5rem 1.5rem 2rem; text-align:center;
+  }
+  footer .stamp-word{
+    font-family:"Archivo Black", sans-serif;
+    font-size:clamp(1.6rem, 5vw, 2.4rem); letter-spacing:-0.01em; margin:0 0 0.8rem;
+  }
+  footer .fine-print{
+    font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:rgba(245,245,245,0.55);
   }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
-  <nav class="site-nav">
-    <a href="https://books.varunagarwal.com">BOOKS</a>
-    <a href="https://wander.varunagarwal.com">WANDER</a>
-    <a href="https://contact.varunagarwal.com">CONTACT</a>
-  </nav>
+  <div class="site-header-inner">
+    <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
+    <nav class="site-nav">
+      <a href="https://books.varunagarwal.com">Books</a>
+      <a href="https://wander.varunagarwal.com">Wander</a>
+      <a href="https://contact.varunagarwal.com">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <a class="breadcrumb" href="../">← Conversations</a>
-  <p class="eyebrow">Conversations — 01 — Ethical declaration</p>
-  <h1 class="title">Whose idea is it anyway?</h1>
+<div class="hero">
+  <div class="hero-inner">
+    <a class="breadcrumb" href="../">← Conversations</a>
+    <h1 class="title">Whose idea is it anyway?</h1>
+    <p class="byline">Essay · Conversations 01 · Ethical declaration</p>
+  </div>
+</div>
 
+<main>
   <article>
     <p>How much AI is involved in the making of this project:</p>
 
@@ -188,7 +207,10 @@
   </article>
 </main>
 
-<footer>Conversations, added as they happen</footer>
+<footer>
+  <div class="stamp-word">Conversations</div>
+  <div class="fine-print">lucidité — notes — added as they happen</div>
+</footer>
 
 </body>
 </html>
