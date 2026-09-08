@@ -127,6 +127,8 @@
     content:"NO PLATE"; font-family:"Archivo Black", sans-serif; font-size:0.8rem;
     color:rgba(245,245,245,0.3); letter-spacing:0.08em;
   }
+  .card-media.has-icon{ display:flex; align-items:center; justify-content:center; }
+  .card-icon{ width:72px; height:72px; color:rgba(245,245,245,0.35); }
 
   .card-body{ background:var(--ink); padding:1rem 1.2rem 1.2rem; }
   .card-name{
@@ -202,11 +204,15 @@
      category: 'gadget' (orange tag) or 'essay' (green tag) — purely visual grouping.
      status 'locked' is for real external links that aren't fully open (e.g.
      password-protected) — still clickable, just tagged so it doesn't read
-     as broken or "coming soon". Set url instead of slug for these. */
+     as broken or "coming soon". Set url instead of slug for these.
+     icon: key into ICONS, shown centered in the media slot when there's no cover. */
+  const ICONS = {
+    wordpress: '<svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.3"/><path d="M4.7 8.3l3.3 8.7 2.4-6.1 2.4 6.1 3.3-8.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  };
   const ENTRIES = [
     {name:"E-Ink'd", slug:'e-inked', status:'live', category:'gadget', cover:'e-inked/img/xteink-01-cafe-mondegar.jpg', blurb:'Five e-ink devices I actually use — XTEink X4, Kindle Colorsoft, Bloomin8 photo frame, TRMNL X, Pebble Time 2.'},
     {name:'Conversations', slug:'conversations', status:'live', category:'essay', blurb:"Things I keep turning over out loud. First up — whose idea is it anyway?"},
-    {name:'Old Blog', status:'locked', url:'https://arnuv.wordpress.com/', meta:'arnuv.wordpress.com · Locked', blurb:"A blog I used to keep. Password-protected for now — this is just a marker so it isn't forgotten."},
+    {name:'Old blog', status:'locked', url:'https://arnuv.wordpress.com/', icon:'wordpress', meta:'arnuv.wordpress.com · Locked', blurb:"A blog I used to keep. Password-protected for now — this is just a marker so it isn't forgotten."},
   ];
 
   const list = document.getElementById('entries');
@@ -215,12 +221,14 @@
     const isLocked = e.status === 'locked';
     const clickable = isLive || isLocked;
     const coverStyle = e.cover ? `background-image:url('${e.cover}');` : '';
+    const mediaClass = e.cover ? '' : (e.icon ? 'has-icon' : 'no-cover');
+    const iconSvg = (!e.cover && e.icon) ? (ICONS[e.icon] || '') : '';
     const tagClass = isLocked ? 'locked' : (!isLive ? 'coming' : (e.category === 'essay' ? 'cat-essay' : ''));
     const tagLabel = isLocked ? 'Locked' : (isLive ? (e.category === 'essay' ? 'Essay' : 'Gadget') : 'Coming soon');
     const href = isLocked ? e.url : `${e.slug}/`;
     const linkAttrs = isLocked ? ' target="_blank" rel="noopener"' : '';
     const inner = `
-      <div class="card-media ${e.cover ? '' : 'no-cover'}" style="${coverStyle}"></div>
+      <div class="card-media ${mediaClass}" style="${coverStyle}">${iconSvg}</div>
       <div class="card-body">
         <span class="tag ${tagClass}">${tagLabel}</span>
         <p class="card-name">${e.name}</p>
