@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Userscripts — lucidité</title>
+<meta name="description" content="Two Tampermonkey scripts I built and actually keep installed — a Wikipedia/Reddit sidebar for Google Search, and a layout fix for the EAU Guidelines site.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480&family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #0d0d0d;
+    --paper: #F5F5F5;
+    --paper-soft: #ffffff;
+    --gold: #FF7F00;
+    --oxblood: #FF7F00;
+    --green: #2FAE5C;
+    --blue: #4E8FE8;
+    --text-on-paper: #0d0d0d;
+    --muted-on-paper: rgba(13,13,13,0.6);
+    --max: 640px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--text-on-paper);
+    font-family:"Archivo", sans-serif;
+    min-height:100vh;
+  }
+
+  header.site-header{
+    background:var(--ink); color:var(--paper);
+    padding:1.1rem 1.5rem;
+  }
+  .site-header-inner{
+    max-width:var(--max); margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem 0;
+  }
+  .wordmark{
+    font-family:"Fraunces", serif; font-weight:480; font-style:italic;
+    font-size:1.05rem; margin:0; letter-spacing:-0.01em;
+    color:var(--paper); text-decoration:none;
+  }
+  nav.site-nav{ display:flex; gap:0.5rem; }
+  nav.site-nav a{
+    display:inline-block;
+    color:var(--ink); text-decoration:none; background:var(--oxblood);
+    font-size:0.7rem; letter-spacing:0.02em; font-weight:700;
+    padding:0.38rem 0.85rem; border-radius:100px;
+    transition:filter .15s ease;
+  }
+  nav.site-nav a:nth-child(2){ background:var(--green); color:#fff; }
+  nav.site-nav a:nth-child(3){ background:var(--blue); color:#fff; }
+  nav.site-nav a:hover{ filter:brightness(1.1); }
+
+  main{max-width:var(--max); margin:0 auto; padding:3rem 1.5rem 6rem;}
+
+  .eyebrow{
+    font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--muted-on-paper); margin-bottom:0.75rem;
+  }
+  .eyebrow a{ color:var(--oxblood); text-decoration:none; font-weight:700; }
+  .eyebrow a:hover{ text-decoration:underline; }
+
+  h1.title{
+    font-family:"Archivo Black", sans-serif;
+    font-size:clamp(2.2rem, 7vw, 3rem); line-height:0.98; margin:0 0 0.5rem;
+    color:var(--ink); letter-spacing:-0.01em;
+  }
+  .byline{
+    font-family:"Fraunces", serif; font-style:italic; font-size:1rem;
+    color:var(--muted-on-paper); margin:0 0 1.75rem;
+  }
+
+  h2.device{
+    font-family:"Archivo Black", sans-serif;
+    font-size:1.2rem; color:var(--ink);
+    margin:3rem 0 0.4rem; padding-top:1.5rem; border-top:3px solid var(--oxblood);
+    letter-spacing:-0.005em;
+  }
+  main > h2.device:first-of-type{ border-top:none; padding-top:0; margin-top:0; }
+
+  .device-meta{
+    font-size:0.72rem; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--muted-on-paper); margin:0 0 1.1rem;
+  }
+
+  p{ font-size:0.92rem; line-height:1.75; margin:0 0 1.1rem; }
+  p a{ color:var(--oxblood); }
+  p code{ background:var(--paper-soft); padding:0.1em 0.35em; border-radius:2px; font-size:0.85em; }
+
+  ul.features{ margin:0 0 1.1rem; padding-left:1.2rem; }
+  ul.features li{ font-size:0.92rem; line-height:1.65; margin-bottom:0.4rem; }
+
+  .install-box{
+    background:var(--paper-soft); border:1px solid rgba(13,13,13,0.12);
+    border-radius:10px; padding:1rem 1.1rem; margin:0 0 1.5rem;
+  }
+  .install-box p{ margin:0 0 0.7rem; font-size:0.82rem; color:var(--muted-on-paper); }
+  .install-box p:last-child{ margin-bottom:0; }
+  .btn-install{
+    display:inline-block; font-family:"Archivo", sans-serif; font-weight:700;
+    font-size:0.82rem; text-decoration:none; color:#fff; background:var(--oxblood);
+    padding:0.55rem 1.1rem; border-radius:100px; transition:filter .15s ease;
+  }
+  .btn-install:hover{ filter:brightness(1.1); }
+  .req-note{
+    font-size:0.72rem; color:var(--muted-on-paper); margin:0 0 1.1rem;
+  }
+  .req-note a{ color:var(--oxblood); }
+
+  footer{
+    background:var(--ink); color:rgba(245,245,245,0.6);
+    padding:1.5rem; text-align:center; margin-top:2rem;
+    font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
+    <nav class="site-nav">
+      <a href="https://books.varunagarwal.com">Books</a>
+      <a href="https://wander.varunagarwal.com">Wander</a>
+      <a href="https://contact.varunagarwal.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow"><a href="../">← Notes</a></p>
+  <h1 class="title">Userscripts</h1>
+  <p class="byline">Gadgets, but for the browser</p>
+
+  <p>Two <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">Tampermonkey</a> scripts I wrote and keep installed day to day. Click install, Tampermonkey opens the diff and asks you to confirm — that's it, no build step.</p>
+
+  <h2 class="device">SearchDeck Pro.</h2>
+  <p class="device-meta">v4.1 · runs on google.com/search</p>
+  <p>A companion sidebar that docks to the corner of a Google Search results page. As soon as the results contain a Wikipedia or Reddit link, it fetches the article summary and top thread in the background and springs in with a little physical bounce, so the answer's sitting there without a second tab.</p>
+  <ul class="features">
+    <li>Pulls a cleaned Wikipedia extract (infoboxes/references stripped) plus the top four Reddit comments from any matching thread on the results page</li>
+    <li>Docks left or right, minimizes on scroll, remembers dark mode and dock side per-device</li>
+    <li>Tap-to-zoom on the Wikipedia thumbnail, one-click copy of whatever pane is open</li>
+  </ul>
+  <div class="install-box">
+    <p>Installing adds two cross-origin fetches (<code>en.wikipedia.org</code>, <code>reddit.com</code>) — that's what the permission prompt is about.</p>
+    <a class="btn-install" href="searchdeck-pro.user.js">Install SearchDeck Pro →</a>
+  </div>
+
+  <h2 class="device">EAU Guidelines UI Enhancer.</h2>
+  <p class="device-meta">v1.5.1 · runs on uroweb.org</p>
+  <p>A small fix for the <a href="https://uroweb.org/" target="_blank" rel="noopener">EAU Guidelines</a> site's table-of-contents, which otherwise scrolls away with the page instead of staying put next to the section you're reading. This pins it (sticky, with its own scrollbar) and adds a small floating stack in the corner for jumping straight to the full PDF or pocket guideline, plus a toggle to hide the "Ask Guidelines Bot" widget when it's in the way.</p>
+  <ul class="features">
+    <li>Sticky, independently-scrolling chapter list instead of one that disappears past the fold</li>
+    <li>One-tap shortcuts to the full PDF and pocket guideline download once the page renders them</li>
+    <li>Toggle to hide the floating chat bot</li>
+  </ul>
+  <div class="install-box">
+    <p>No network permissions — it only touches the page's own DOM.</p>
+    <a class="btn-install" href="eau-guidelines-enhancer.user.js">Install EAU Guidelines UI Enhancer →</a>
+  </div>
+
+  <p class="req-note">Both need <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">Tampermonkey</a> (or another userscript manager) installed in your browser first.</p>
+</main>
+
+<footer>lucidité — notes</footer>
+
+</body>
+</html>
