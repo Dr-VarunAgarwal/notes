@@ -93,6 +93,27 @@ body.retro-body{
 }
 .nav-list a:hover{ border:1px inset #FFFFFF; background:#FFFFCC; color:#CC0000; }
 
+/* the top-level site (lucidité) sits above the rest of the tree, so it
+   gets its own look and a rule underneath separating it from its children */
+.nav-list li.nav-home{
+  margin-bottom:9px; padding-bottom:9px; border-bottom:1px dashed rgba(0,0,0,0.3);
+}
+.nav-list li.nav-home a{
+  background:linear-gradient(90deg, var(--rw-navy), #3a6ea5); color:#FFFFFF;
+  border:1px outset #7fa8d9; font-size:12px; letter-spacing:0.02em;
+}
+.nav-list li.nav-home a:hover{ background:var(--rw-blue); color:#FFFFFF; border:1px inset #7fa8d9; }
+
+/* link back to the root domain, tucked at the bottom of the sidebar,
+   deliberately understated since it's leaving the lucidité family entirely */
+.sidebar-root{
+  text-align:center; margin-top:10px; padding-top:8px;
+  border-top:1px dashed rgba(0,0,0,0.25);
+  font-size:9px; color:#555555;
+}
+.sidebar-root a{ color:var(--rw-navy); font-weight:bold; text-decoration:none; }
+.sidebar-root a:hover{ text-decoration:underline; color:#CC0000; }
+
 /* content headings */
 h2.heading{
   font-family:"Trebuchet MS", Tahoma, sans-serif; font-size:16px; color:#003366;
