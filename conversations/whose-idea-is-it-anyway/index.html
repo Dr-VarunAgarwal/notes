@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Whose idea is it anyway? — Conversations — lucidité</title>
+<title>★ Whose idea is it anyway? — Conversations — lucidité ★</title>
 <meta name="description" content="An ethical declaration on how much AI is involved in this project — and where authorship actually resides.">
-<meta name="theme-color" content="#F5F5F5">
+<meta name="theme-color" content="#000033">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="lucidité">
 <meta property="og:url" content="https://notes.varunagarwal.com/conversations/whose-idea-is-it-anyway/">
@@ -21,208 +21,106 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="../../favicon-512.png">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480&family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #F5F5F5;
-    --ink: #0d0d0d;
-    --ink-soft: rgba(13,13,13,0.62);
-    --orange: #FF7F00;
-    --green: #2FAE5C;
-    --blue: #4E8FE8;
-    --line: rgba(13,13,13,0.15);
-    --max: 640px;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:"Archivo", sans-serif;
-    min-height:100vh;
-  }
-
-  header.site-header{
-    background:var(--ink); color:var(--bg);
-    padding:1.1rem 1.5rem;
-  }
-  .site-header-inner{
-    max-width:var(--max); margin:0 auto;
-    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem 0;
-  }
-  .wordmark{
-    font-family:"Fraunces", serif; font-weight:480; font-style:italic;
-    font-size:1.05rem; margin:0; letter-spacing:-0.01em;
-    color:var(--bg); text-decoration:none;
-  }
-  nav.site-nav{ display:flex; gap:0.5rem; }
-  nav.site-nav a{
-    display:inline-block;
-    color:var(--ink); text-decoration:none; background:var(--orange);
-    font-size:0.7rem; letter-spacing:0.02em; font-weight:700;
-    padding:0.38rem 0.85rem; border-radius:100px;
-    transition:filter .15s ease;
-  }
-  nav.site-nav a:nth-child(2){ background:var(--green); color:#fff; }
-  nav.site-nav a:nth-child(3){ background:var(--blue); color:#fff; }
-  nav.site-nav a:hover{ filter:brightness(1.1); }
-
-  .hero{ background:var(--ink); padding:2.5rem 1.5rem 2.5rem; }
-  .hero-inner{ max-width:var(--max); margin:0 auto; }
-  .breadcrumb{
-    font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--orange); text-decoration:none; display:inline-block; margin-bottom:1.2rem; font-weight:700;
-  }
-  .breadcrumb:hover{ text-decoration:underline; }
-  h1.title{
-    font-family:"Archivo Black", sans-serif;
-    font-size:clamp(2.1rem, 7vw, 2.9rem); line-height:1.02; margin:0 0 0.6rem;
-    color:var(--bg); letter-spacing:-0.01em;
-  }
-  .byline{
-    font-family:"Fraunces", serif; font-style:italic; font-size:1rem;
-    color:rgba(245,245,245,0.6); margin:0;
-  }
-
-  main{max-width:var(--max); margin:0 auto; padding:2.5rem 1.5rem 4rem;}
-
-  article{ font-size:0.94rem; line-height:1.8; }
-  article p{ margin:0 0 1.4rem; }
-  .questions{
-    margin:0 0 1.4rem; padding-left:1.1rem;
-    border-left:3px solid var(--orange);
-    font-style:italic; color:var(--ink-soft);
-  }
-  .questions p{ margin:0 0 0.7rem; }
-  .questions p:last-child{ margin-bottom:0; }
-
-  .chart-wrap{
-    margin:2.4rem 0; overflow-x:auto;
-    border:1px solid var(--line);
-  }
-  table{ border-collapse:collapse; width:100%; font-size:0.76rem; }
-  th, td{
-    text-align:left; padding:0.7rem 0.8rem;
-    border-bottom:1px solid var(--line);
-    vertical-align:top;
-  }
-  thead th{
-    background:var(--ink); color:var(--bg);
-    font-family:"Archivo Black", sans-serif; font-weight:400; font-size:0.68rem;
-    letter-spacing:0.04em; text-transform:uppercase;
-  }
-  tbody tr:last-child td{ border-bottom:none; }
-  td:first-child{ font-family:"Archivo Black", sans-serif; color:var(--orange); width:2.2rem; }
-  td:nth-child(2){ font-weight:700; white-space:nowrap; color:var(--ink); }
-  .chart-caption{
-    font-size:0.68rem; color:var(--ink-soft); text-align:right;
-    padding:0.5rem 0.8rem; border-top:1px solid var(--line);
-  }
-
-  .declaration-box{
-    margin:2.6rem 0; padding:1.4rem 1.5rem;
-    background:var(--ink); border:1.5px dashed var(--orange);
-  }
-  .declaration-box .label{
-    font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700;
-    color:var(--orange); margin:0 0 0.6rem;
-  }
-  .declaration-box .value{
-    font-family:"Fraunces", serif; font-style:italic; font-size:1.02rem;
-    color:rgba(245,245,245,0.85);
-  }
-
-  footer{
-    background:var(--ink); color:var(--bg);
-    padding:2.5rem 1.5rem 2rem; text-align:center;
-  }
-  footer .stamp-word{
-    font-family:"Archivo Black", sans-serif;
-    font-size:clamp(1.6rem, 5vw, 2.4rem); letter-spacing:-0.01em; margin:0 0 0.8rem;
-  }
-  footer .fine-print{
-    font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
-    color:rgba(245,245,245,0.55);
-  }
-</style>
+<link rel="stylesheet" href="../../assets/retro.css">
 </head>
-<body>
+<body class="retro-body">
 
-<header class="site-header">
-  <div class="site-header-inner">
-    <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
-    <nav class="site-nav">
-      <a href="https://books.varunagarwal.com">Books</a>
-      <a href="https://wander.varunagarwal.com">Wander</a>
-      <a href="https://contact.varunagarwal.com">Contact</a>
-    </nav>
-  </div>
-</header>
+<div id="page-container">
 
-<div class="hero">
-  <div class="hero-inner">
-    <a class="breadcrumb" href="../">← Conversations</a>
-    <h1 class="title">Whose idea is it anyway?</h1>
-    <p class="byline">Essay · Conversations 01 · Ethical declaration</p>
+  <div class="header-banner">
+    <h1>WHOSE IDEA IS IT ANYWAY?</h1>
+    <div class="tagline">« Essay · Conversations 01 · Ethical Declaration »</div>
   </div>
+
+  <div class="news-ticker">
+    <marquee scrollamount="4" behavior="scroll" direction="left">
+      +++ FILED UNDER: Conversations +++ A declaration of AI involvement, word by word +++ Where does authorship reside? +++
+    </marquee>
+  </div>
+
+  <div class="layout-grid">
+    <div class="sidebar">
+      <div class="menu-box">
+        <div class="menu-title">Main Portal</div>
+        <ul class="nav-list">
+          <li><a href="../">⮞ Conversations</a></li>
+          <li><a href="../../">⮞ Notes</a></li>
+          <li><a href="https://blog.varunagarwal.com">⮞ lucidité</a></li>
+          <li><a href="https://books.varunagarwal.com">⮞ Books</a></li>
+          <li><a href="https://wander.varunagarwal.com">⮞ Wander</a></li>
+          <li><a href="https://contact.varunagarwal.com">⮞ Contact</a></li>
+        </ul>
+      </div>
+      <div class="menu-box" style="text-align:center;">
+        <div class="menu-title">Page Views</div>
+        <div class="counter-wrapper">
+          <div class="counter-label">Hits Counted</div>
+          <div class="odometer" id="hit-counter-digits"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <p class="eyebrow-retro"><a href="../">← Conversations</a></p>
+      <h2 class="heading">Whose idea is it anyway?</h2>
+
+      <p>How much AI is involved in the making of this project:</p>
+
+      <p>Interacting with ridiculous math applied philosophy, sand, metal and electricity fashioned into a piece of technology — AI — has brought us new moral and ethical questions.</p>
+
+      <p>How much use of AI is okay? Is this complete AI slop? Where was the human lazing off?</p>
+
+      <p>I decided to have a declaration attached to my projects where I type in, word by word, how much AI contributed — as per MY assessment.</p>
+
+      <p>I had the question — and the search for my questions led to more questions — some of them raised by the LLM itself. It also gave me ideas for more questions. Ideas to create.</p>
+
+      <div class="retro-quote">
+        <p>So where does authorship reside?</p>
+        <p>Can you call this an AI generated video, or should the answer be a bit more nuanced?</p>
+        <p>Is there a distinction between creative AI and technical AI?</p>
+      </div>
+
+      <p>Here is a suggested chart — generated by an LLM. I asked for a Likert chart of human–AI involvement, and here's what I got.</p>
+
+      <div class="chart-wrap">
+        <table class="retro-table">
+          <thead>
+            <tr><th>Score</th><th>Label</th><th>Definition</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>No AI</td><td>No AI used in the creation of the work.</td></tr>
+            <tr><td>2</td><td>AI Utility</td><td>AI used only for mechanical/technical tasks: transcription, spellcheck, cleanup, formatting, search assistance, etc.</td></tr>
+            <tr><td>3</td><td>AI-Assisted</td><td>AI helped with brainstorming, research, organization, or iteration, but the human independently determines the creative substance.</td></tr>
+            <tr><td>4</td><td>AI-Augmented</td><td>AI contributes ideas, analysis, alternatives, or intermediate creative material that meaningfully influences the final work. Human remains the primary author.</td></tr>
+            <tr><td>5</td><td>AI-Collaborative</td><td>AI substantially participates in developing the argument, narrative, writing, visual concept, or other core creative components. Final work is jointly shaped through human–AI interaction.</td></tr>
+            <tr><td>6</td><td>AI-Directed</td><td>AI generates substantial portions of the final creative artifact. Human primarily provides direction, selection, editing, and curation.</td></tr>
+            <tr><td>7</td><td>AI-Generated</td><td>AI produces most of the substantive creative artifact from relatively high-level human instructions, with human primarily acting as director/curator.</td></tr>
+          </tbody>
+        </table>
+        <div class="chart-caption">Likert chart — human/AI involvement, generated by an LLM on request</div>
+      </div>
+
+      <p>So. I'm going to declare a level of involvement using this nifty little chart, and of course we could argue about things, ignore things, or just engage with what we deem fit for our attention.</p>
+
+      <p>I mean — you could read a book and come up with an idea, or you might choose to step into realising its existence in a different form: a poem, a drawing, an art piece, a video, a paper airplane, a climb up the mountain, a decision. That's where I guess things morally stand? After all, even the worst AI slop would have begun with a human prompt, and whatever chain of events follows is just what happens.</p>
+
+      <p>I suppose at some level AI is pretty much a digitisation of the collective human knowledge. Yes, there's always going to be bias. But after all — it is us humans trying to live in this world and doing stuff humans should be expected to be doing.</p>
+
+      <div class="declaration-box">
+        <p class="label">Declared involvement for this piece</p>
+        <p class="value">Apart from the Likert chart itself, everything here came as a result of chemicals moving around the grey matter of one primate sitting in front of a screen.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer">
+    <hr class="retro-rule">
+    lucidité — notes — added as they happen
+  </div>
+
 </div>
 
-<main>
-  <article>
-    <p>How much AI is involved in the making of this project:</p>
-
-    <p>Interacting with ridiculous math applied philosophy, sand, metal and electricity fashioned into a piece of technology — AI — has brought us new moral and ethical questions.</p>
-
-    <p>How much use of AI is okay? Is this complete AI slop? Where was the human lazing off?</p>
-
-    <p>I decided to have a declaration attached to my projects where I type in, word by word, how much AI contributed — as per MY assessment.</p>
-
-    <p>I had the question — and the search for my questions led to more questions — some of them raised by the LLM itself. It also gave me ideas for more questions. Ideas to create.</p>
-
-    <div class="questions">
-      <p>So where does authorship reside?</p>
-      <p>Can you call this an AI generated video, or should the answer be a bit more nuanced?</p>
-      <p>Is there a distinction between creative AI and technical AI?</p>
-    </div>
-
-    <p>Here is a suggested chart — generated by an LLM. I asked for a Likert chart of human–AI involvement, and here's what I got.</p>
-
-    <div class="chart-wrap">
-      <table>
-        <thead>
-          <tr><th>Score</th><th>Label</th><th>Definition</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>No AI</td><td>No AI used in the creation of the work.</td></tr>
-          <tr><td>2</td><td>AI Utility</td><td>AI used only for mechanical/technical tasks: transcription, spellcheck, cleanup, formatting, search assistance, etc.</td></tr>
-          <tr><td>3</td><td>AI-Assisted</td><td>AI helped with brainstorming, research, organization, or iteration, but the human independently determines the creative substance.</td></tr>
-          <tr><td>4</td><td>AI-Augmented</td><td>AI contributes ideas, analysis, alternatives, or intermediate creative material that meaningfully influences the final work. Human remains the primary author.</td></tr>
-          <tr><td>5</td><td>AI-Collaborative</td><td>AI substantially participates in developing the argument, narrative, writing, visual concept, or other core creative components. Final work is jointly shaped through human–AI interaction.</td></tr>
-          <tr><td>6</td><td>AI-Directed</td><td>AI generates substantial portions of the final creative artifact. Human primarily provides direction, selection, editing, and curation.</td></tr>
-          <tr><td>7</td><td>AI-Generated</td><td>AI produces most of the substantive creative artifact from relatively high-level human instructions, with human primarily acting as director/curator.</td></tr>
-        </tbody>
-      </table>
-      <div class="chart-caption">Likert chart — human/AI involvement, generated by an LLM on request</div>
-    </div>
-
-    <p>So. I'm going to declare a level of involvement using this nifty little chart, and of course we could argue about things, ignore things, or just engage with what we deem fit for our attention.</p>
-
-    <p>I mean — you could read a book and come up with an idea, or you might choose to step into realising its existence in a different form: a poem, a drawing, an art piece, a video, a paper airplane, a climb up the mountain, a decision. That's where I guess things morally stand? After all, even the worst AI slop would have begun with a human prompt, and whatever chain of events follows is just what happens.</p>
-
-    <p>I suppose at some level AI is pretty much a digitisation of the collective human knowledge. Yes, there's always going to be bias. But after all — it is us humans trying to live in this world and doing stuff humans should be expected to be doing.</p>
-
-    <div class="declaration-box">
-      <p class="label">Declared involvement for this piece</p>
-      <p class="value">Apart from the Likert chart itself, everything here came as a result of chemicals moving around the grey matter of one primate sitting in front of a screen.</p>
-    </div>
-  </article>
-</main>
-
-<footer>
-  <div class="stamp-word">Conversations</div>
-  <div class="fine-print">lucidité — notes — added as they happen</div>
-</footer>
+<script src="../../assets/retro.js"></script>
 
 </body>
 </html>

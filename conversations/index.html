@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Conversations — lucidité</title>
+<title>★ Conversations — Notes — lucidité ★</title>
 <meta name="description" content="Things I keep turning over out loud — questions I don't have a tidy answer to yet, written down mid-thought.">
-<meta name="theme-color" content="#F5F5F5">
+<meta name="theme-color" content="#000033">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="lucidité">
 <meta property="og:url" content="https://notes.varunagarwal.com/conversations/">
@@ -21,133 +21,66 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="../favicon-512.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480&family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #F5F5F5;
-    --ink: #0d0d0d;
-    --ink-soft: rgba(13,13,13,0.62);
-    --orange: #FF7F00;
-    --green: #2FAE5C;
-    --blue: #4E8FE8;
-    --line: rgba(13,13,13,0.15);
-    --max: 780px;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:"Archivo", sans-serif;
-    min-height:100vh;
-  }
-
-  header.site-header{
-    background:var(--ink); color:var(--bg);
-    padding:1.1rem 1.5rem;
-  }
-  .site-header-inner{
-    max-width:var(--max); margin:0 auto;
-    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem 0;
-  }
-  .wordmark{
-    font-family:"Fraunces", serif; font-weight:480; font-style:italic;
-    font-size:1.05rem; margin:0; letter-spacing:-0.01em;
-    color:var(--bg); text-decoration:none;
-  }
-  nav.site-nav{ display:flex; gap:0.5rem; }
-  nav.site-nav a{
-    display:inline-block;
-    color:var(--ink); text-decoration:none; background:var(--orange);
-    font-size:0.7rem; letter-spacing:0.02em; font-weight:700;
-    padding:0.38rem 0.85rem; border-radius:100px;
-    transition:filter .15s ease;
-  }
-  nav.site-nav a:nth-child(2){ background:var(--green); color:#fff; }
-  nav.site-nav a:nth-child(3){ background:var(--blue); color:#fff; }
-  nav.site-nav a:hover{ filter:brightness(1.1); }
-
-  main{max-width:var(--max); margin:0 auto; padding:3rem 1.5rem 6rem;}
-
-  .eyebrow{
-    font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--ink-soft); margin-bottom:0.75rem;
-  }
-  .eyebrow a{ color:var(--orange); text-decoration:none; font-weight:700; }
-  .eyebrow a:hover{ text-decoration:underline; }
-  h1.title{
-    font-family:"Archivo Black", sans-serif;
-    font-size:clamp(2.2rem, 7vw, 3rem); line-height:0.98; margin:0 0 0.5rem;
-    color:var(--ink); letter-spacing:-0.01em;
-  }
-  .intro{
-    color:var(--ink-soft); font-size:0.92rem; line-height:1.7;
-    max-width:56ch; margin:0 0 3rem;
-  }
-
-  .stack{ display:flex; flex-direction:column; gap:1.2rem; }
-  .card{
-    position:relative; display:block; text-decoration:none; color:inherit;
-    background:var(--ink); padding:1.4rem 1.5rem 1.6rem;
-    transition:transform .15s ease;
-  }
-  .card.is-live:hover{ transform:translateY(-3px); }
-  .card.is-draft{ opacity:0.55; }
-  .tag{
-    display:inline-block; margin:0 0 0.7rem;
-    background:var(--green); color:#fff;
-    font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; font-weight:700;
-    padding:4px 10px; border-radius:100px;
-  }
-  .tag.coming{ background:rgba(245,245,245,0.2); }
-  .entry-name{
-    font-family:"Archivo Black", sans-serif; font-size:1.3rem;
-    color:var(--bg); margin:0 0 0.5rem; line-height:1.1;
-  }
-  .card.is-live:hover .entry-name{ color:var(--orange); }
-  .entry-blurb{ font-size:0.86rem; color:rgba(245,245,245,0.75); line-height:1.65; }
-
-  footer{
-    background:var(--ink); color:var(--bg);
-    padding:2.5rem 1.5rem 2rem; text-align:center;
-  }
-  footer .stamp-word{
-    font-family:"Archivo Black", sans-serif;
-    font-size:clamp(1.8rem, 6vw, 2.8rem); letter-spacing:-0.01em; margin:0 0 0.8rem;
-  }
-  footer .fine-print{
-    font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
-    color:rgba(245,245,245,0.55);
-  }
-</style>
+<link rel="stylesheet" href="../assets/retro.css">
 </head>
-<body>
+<body class="retro-body">
 
-<header class="site-header">
-  <div class="site-header-inner">
-    <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
-    <nav class="site-nav">
-      <a href="https://books.varunagarwal.com">Books</a>
-      <a href="https://wander.varunagarwal.com">Wander</a>
-      <a href="https://contact.varunagarwal.com">Contact</a>
-    </nav>
+<div id="page-container">
+
+  <div class="header-banner">
+    <h1>CONVERSATIONS</h1>
+    <div class="tagline">« Things I Keep Turning Over Out Loud »</div>
   </div>
-</header>
 
-<main>
-  <p class="eyebrow"><a href="../">← Notes</a></p>
-  <h1 class="title">Conversations</h1>
-  <p class="intro">Things I keep turning over out loud — questions I don't have a tidy answer to yet, written down mid-thought.</p>
+  <div class="news-ticker">
+    <marquee scrollamount="4" behavior="scroll" direction="left">
+      +++ ESSAY #1: Whose idea is it anyway? +++ No tidy answers here, just questions written down mid-thought +++
+    </marquee>
+  </div>
 
-  <div class="stack" id="entries"></div>
-</main>
+  <div class="layout-grid">
+    <div class="sidebar">
+      <div class="menu-box">
+        <div class="menu-title">Main Portal</div>
+        <ul class="nav-list">
+          <li><a href="../">⮞ Notes</a></li>
+          <li><a href="https://blog.varunagarwal.com">⮞ lucidité</a></li>
+          <li><a href="https://books.varunagarwal.com">⮞ Books</a></li>
+          <li><a href="https://wander.varunagarwal.com">⮞ Wander</a></li>
+          <li><a href="https://contact.varunagarwal.com">⮞ Contact</a></li>
+        </ul>
+      </div>
+      <div class="menu-box" style="text-align:center;">
+        <div class="menu-title">Page Views</div>
+        <div class="counter-wrapper">
+          <div class="counter-label">Hits Counted</div>
+          <div class="odometer" id="hit-counter-digits"></div>
+        </div>
+      </div>
+    </div>
 
-<footer>
-  <div class="stamp-word">Conversations</div>
-  <div class="fine-print">lucidité — notes — added as they happen</div>
-</footer>
+    <div class="main-content">
+      <p class="eyebrow-retro"><a href="../">← Notes</a></p>
+      <h2 class="heading">Conversations</h2>
+      <p class="byline-retro">Things I keep turning over out loud — questions I don't have a tidy answer to yet, written down mid-thought.</p>
 
+      <div id="entries"></div>
+    </div>
+  </div>
+
+  <div class="button-bar">
+    <div class="pixel-badge badge-1">Best Viewed<br>With Curiosity</div>
+    <div class="pixel-badge badge-2">Thoughts,<br>Unfiltered</div>
+  </div>
+
+  <div class="site-footer">
+    <hr class="retro-rule">
+    lucidité — notes — added as they happen
+  </div>
+
+</div>
+
+<script src="../assets/retro.js"></script>
 <script>
   const TOPICS = [
     {name:"Whose idea is it anyway?", slug:'whose-idea-is-it-anyway', status:'live', blurb:'An ethical declaration — trying to work out how much AI involvement is okay, and where authorship actually sits.'},
@@ -157,12 +90,12 @@
   list.innerHTML = TOPICS.map(t => {
     const isLive = t.status === 'live';
     const inner = `
-      <span class="tag ${isLive ? '' : 'coming'}">${isLive ? 'Essay' : 'Coming soon'}</span>
-      <p class="entry-name">${t.name}</p>
-      <p class="entry-blurb">${t.blurb}</p>`;
+      <span class="retro-tag ${isLive ? 'essay' : 'coming'}">${isLive ? 'Essay' : 'Coming soon'}</span>
+      <div class="entry-header"><span>${t.name}</span></div>
+      <p>${t.blurb}</p>`;
     return isLive
-      ? `<a class="card is-live" href="${t.slug}/">${inner}</a>`
-      : `<div class="card is-draft">${inner}</div>`;
+      ? `<a class="blog-entry" href="${t.slug}/">${inner}</a>`
+      : `<div class="blog-entry is-draft">${inner}</div>`;
   }).join('');
 </script>
 

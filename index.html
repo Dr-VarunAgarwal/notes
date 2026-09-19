@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Notes — lucidité</title>
+<title>★ Notes — lucidité ★</title>
 <meta name="description" content="Writeups that don't fit anywhere else — gadgets, projects, whatever I've been messing with. Filed as I go.">
-<meta name="theme-color" content="#F5F5F5">
+<meta name="theme-color" content="#000033">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="lucidité">
 <meta property="og:url" content="https://notes.varunagarwal.com/">
@@ -21,200 +21,76 @@
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480&family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #F5F5F5;
-    --ink: #0d0d0d;
-    --ink-soft: rgba(13,13,13,0.62);
-    --orange: #FF7F00;
-    --green: #2FAE5C;
-    --blue: #4E8FE8;
-    --line: rgba(13,13,13,0.15);
-    --max: 900px;
-  }
-  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:"Archivo", sans-serif;
-    min-height:100vh;
-  }
-
-  header.site-header{
-    background:var(--ink); color:var(--bg);
-    padding:1.1rem 1.5rem;
-  }
-  .site-header-inner{
-    max-width:var(--max); margin:0 auto;
-    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.6rem 0;
-  }
-  .wordmark{
-    font-family:"Fraunces", serif; font-weight:480; font-style:italic;
-    font-size:1.1rem; margin:0; letter-spacing:-0.01em;
-    color:var(--bg); text-decoration:none;
-  }
-  nav.site-nav{ display:flex; gap:0.5rem; }
-  nav.site-nav a{
-    display:inline-block;
-    color:var(--ink); text-decoration:none; background:var(--orange);
-    font-size:0.72rem; letter-spacing:0.02em; font-weight:700;
-    padding:0.4rem 0.9rem; border-radius:100px;
-    transition:filter .15s ease;
-  }
-  nav.site-nav a:nth-child(2){ background:var(--green); color:#fff; }
-  nav.site-nav a:nth-child(3){ background:var(--blue); color:#fff; }
-  nav.site-nav a:hover{ filter:brightness(1.1); }
-
-  .hero{
-    background:
-      radial-gradient(ellipse at 30% 20%, rgba(255,127,0,0.25), transparent 60%),
-      var(--ink);
-    padding:3.5rem 1.5rem 2.5rem;
-  }
-  .hero-inner{
-    max-width:var(--max); margin:0 auto;
-    display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
-  }
-  .badge{ width:84px; height:84px; flex:none; }
-  .eyebrow{
-    font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase;
-    color:var(--orange); font-weight:700; margin:0 0 0.5rem;
-  }
-  h1.title{
-    font-family:"Archivo Black", sans-serif;
-    font-size:clamp(2.6rem, 9vw, 4.6rem); line-height:0.95; margin:0;
-    color:var(--bg); letter-spacing:-0.01em;
-  }
-
-  main{max-width:var(--max); margin:0 auto; padding:2.5rem 1.5rem 4rem;}
-
-  .intro{
-    color:var(--ink-soft); font-size:0.92rem; line-height:1.7;
-    max-width:56ch; margin:0 0 3rem;
-  }
-
-  .grid{
-    display:grid; grid-template-columns:1fr; gap:1.5rem;
-  }
-  @media(min-width:640px){ .grid{ grid-template-columns:1fr 1fr; } }
-
-  .card{
-    position:relative; display:block; text-decoration:none; color:inherit;
-    transition:transform .15s ease, opacity .15s ease;
-  }
-  .card.is-live:hover{ transform:translateY(-3px); }
-  .card.is-draft{ opacity:0.55; }
-
-  .tag{
-    display:inline-block; margin:0 0 0.6rem;
-    background:var(--orange); color:var(--ink);
-    font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; font-weight:700;
-    padding:4px 10px; border-radius:100px;
-  }
-  .tag.cat-essay{ background:var(--green); color:#fff; }
-  .tag.coming{ background:var(--line); color:var(--ink); }
-  .tag.locked{ background:var(--ink); color:var(--bg); }
-
-  .card-media{
-    aspect-ratio:4/3; width:100%; background:var(--ink);
-    background-size:cover; background-position:center;
-  }
-  .card-media.no-cover{ display:flex; align-items:center; justify-content:center; }
-  .card-media.no-cover::after{
-    content:"NO PLATE"; font-family:"Archivo Black", sans-serif; font-size:0.8rem;
-    color:rgba(245,245,245,0.3); letter-spacing:0.08em;
-  }
-  .card-media.has-icon{ display:flex; align-items:center; justify-content:center; }
-  .card-icon{ width:72px; height:72px; color:rgba(245,245,245,0.35); }
-
-  .card-body{ background:var(--ink); padding:1rem 1.2rem 1.2rem; }
-  .card-name{
-    font-family:"Archivo Black", sans-serif; font-size:1.25rem;
-    letter-spacing:-0.005em;
-    color:var(--bg); margin:0 0 0.35rem; line-height:1.1;
-  }
-  .card.is-live:hover .card-name{ color:var(--orange); }
-  .card-meta{
-    font-family:"Fraunces", serif; font-style:italic; font-size:0.78rem;
-    color:rgba(245,245,245,0.55); margin:0 0 0.6rem;
-  }
-  .card-blurb{ font-size:0.8rem; color:rgba(245,245,245,0.75); line-height:1.6; }
-
-  .signoff{
-    text-align:center; font-family:"Fraunces", serif; font-style:italic;
-    color:var(--ink-soft); font-size:0.82rem; margin:3.5rem 0 0;
-  }
-
-  footer{
-    background:var(--ink); color:var(--bg);
-    padding:2.5rem 1.5rem 2rem; text-align:center;
-  }
-  footer .stamp-word{
-    font-family:"Archivo Black", sans-serif;
-    font-size:clamp(1.8rem, 6vw, 2.8rem); letter-spacing:-0.01em; margin:0 0 0.8rem;
-  }
-  footer .fine-print{
-    font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
-    color:rgba(245,245,245,0.55);
-  }
-</style>
+<link rel="stylesheet" href="assets/retro.css">
 </head>
-<body>
+<body class="retro-body">
 
-<header class="site-header">
-  <div class="site-header-inner">
-    <a class="wordmark" href="https://blog.varunagarwal.com">lucidité</a>
-    <nav class="site-nav">
-      <a href="https://books.varunagarwal.com">BOOKS</a>
-      <a href="https://wander.varunagarwal.com">WANDER</a>
-      <a href="https://contact.varunagarwal.com">CONTACT</a>
-    </nav>
+<div id="page-container">
+
+  <div class="header-banner">
+    <h1>NOTES</h1>
+    <div class="tagline">« Gadgets, Scripts &amp; Other Loose Ends — Filed As I Go »</div>
   </div>
-</header>
 
-<div class="hero">
-  <div class="hero-inner">
-    <img class="badge" src="img/grain-badge.png" alt="">
-    <div>
-      <p class="eyebrow">Archive / Notes</p>
-      <h1 class="title">Notes</h1>
+  <div class="news-ticker">
+    <marquee scrollamount="4" behavior="scroll" direction="left">
+      +++ NEW: Userscripts section now live +++ E-Ink'd gadget roundup filed +++ Conversations essay #1: "Whose idea is it anyway?" +++ More filed as it happens, no RSS needed, just check back +++
+    </marquee>
+  </div>
+
+  <div class="layout-grid">
+    <div class="sidebar">
+      <div class="menu-box">
+        <div class="menu-title">Main Portal</div>
+        <ul class="nav-list">
+          <li><a href="https://blog.varunagarwal.com">⮞ lucidité</a></li>
+          <li><a href="https://books.varunagarwal.com">⮞ Books</a></li>
+          <li><a href="https://wander.varunagarwal.com">⮞ Wander</a></li>
+          <li><a href="https://contact.varunagarwal.com">⮞ Contact</a></li>
+        </ul>
+      </div>
+      <div class="menu-box" style="text-align:center;">
+        <div class="menu-title">Page Views</div>
+        <div class="counter-wrapper">
+          <div class="counter-label">Hits Counted</div>
+          <div class="odometer" id="hit-counter-digits"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <h2 class="heading">Filed Here</h2>
+      <div id="entries"></div>
+      <p style="text-align:center; font-family:'Courier New',monospace; font-size:10px; color:#666;">— end of shelf · more filed as it happens —</p>
     </div>
   </div>
+
+  <div class="button-bar">
+    <div class="pixel-badge badge-1">Best Viewed<br>With Curiosity</div>
+    <div class="pixel-badge badge-2">Handmade<br>HTML &amp; CSS</div>
+    <div class="pixel-badge badge-3">No Frameworks<br>Were Harmed</div>
+  </div>
+
+  <div class="site-footer">
+    <hr class="retro-rule">
+    lucidité — notes — catalogued as they happen
+  </div>
+
 </div>
 
-<main>
-  <p class="intro">Writeups that don't fit anywhere else — gadgets, projects, whatever I've been messing with. Filed as I go.</p>
-
-  <div class="grid" id="entries"></div>
-
-  <p class="signoff">— end of shelf · more filed as it happens —</p>
-</main>
-
-<footer>
-  <div class="stamp-word">Notes</div>
-  <div class="fine-print">lucidité — catalogued as they happen</div>
-</footer>
-
+<script src="assets/retro.js"></script>
 <script>
   /* To add an entry: copy an object below, set status to 'live' once
      that slug/ folder exists with its own index.html.
-     category: 'gadget' (orange tag) or 'essay' (green tag) — purely visual grouping.
+     category: 'gadget' or 'essay' — purely visual grouping.
      status 'locked' is for real external links that aren't fully open (e.g.
      password-protected) — still clickable, just tagged so it doesn't read
-     as broken or "coming soon". Set url instead of slug for these.
-     icon: key into ICONS, shown centered in the media slot when there's no cover. */
-  const ICONS = {
-    wordpress: '<svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.3"/><path d="M4.7 8.3l3.3 8.7 2.4-6.1 2.4 6.1 3.3-8.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    code: '<svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6L3 12l5 6M16 6l5 6-5 6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  };
+     as broken or "coming soon". Set url instead of slug for these. */
   const ENTRIES = [
-    {name:"E-Ink'd", slug:'e-inked', status:'live', category:'gadget', cover:'e-inked/img/xteink-01-cafe-mondegar.jpg', blurb:'Five e-ink devices I actually use — XTEink X4, Kindle Colorsoft, Bloomin8 photo frame, TRMNL X, Pebble Time 2.'},
-    {name:'Userscripts', slug:'userscripts', status:'live', category:'gadget', icon:'code', blurb:'Two Tampermonkey scripts I keep installed — a Wikipedia/Reddit sidebar for Google Search, and a layout fix for the EAU Guidelines site.'},
+    {name:"E-Ink'd", slug:'e-inked', status:'live', category:'gadget'},
+    {name:'Userscripts', slug:'userscripts', status:'live', category:'gadget', blurb:'Two Tampermonkey scripts I keep installed — a Wikipedia/Reddit/GitHub/PubMed research sidebar for Google Search, and a layout fix for the EAU Guidelines site.'},
     {name:'Conversations', slug:'conversations', status:'live', category:'essay', blurb:"Things I keep turning over out loud. First up — whose idea is it anyway?"},
-    {name:'Old blog', status:'locked', url:'https://arnuv.wordpress.com/', icon:'wordpress', meta:'arnuv.wordpress.com · Locked', blurb:"A blog I used to keep. Password-protected for now — this is just a marker so it isn't forgotten."},
+    {name:'Old blog', status:'locked', url:'https://arnuv.wordpress.com/', meta:'arnuv.wordpress.com · Locked'},
   ];
 
   const list = document.getElementById('entries');
@@ -222,24 +98,20 @@
     const isLive = e.status === 'live';
     const isLocked = e.status === 'locked';
     const clickable = isLive || isLocked;
-    const coverStyle = e.cover ? `background-image:url('${e.cover}');` : '';
-    const mediaClass = e.cover ? '' : (e.icon ? 'has-icon' : 'no-cover');
-    const iconSvg = (!e.cover && e.icon) ? (ICONS[e.icon] || '') : '';
-    const tagClass = isLocked ? 'locked' : (!isLive ? 'coming' : (e.category === 'essay' ? 'cat-essay' : ''));
+    const tagClass = isLocked ? 'locked' : (!isLive ? 'coming' : (e.category === 'essay' ? 'essay' : 'gadget'));
     const tagLabel = isLocked ? 'Locked' : (isLive ? (e.category === 'essay' ? 'Essay' : 'Gadget') : 'Coming soon');
     const href = isLocked ? e.url : `${e.slug}/`;
     const linkAttrs = isLocked ? ' target="_blank" rel="noopener"' : '';
     const inner = `
-      <div class="card-media ${mediaClass}" style="${coverStyle}">${iconSvg}</div>
-      <div class="card-body">
-        <span class="tag ${tagClass}">${tagLabel}</span>
-        <p class="card-name">${e.name}</p>
-        <p class="card-meta">${e.meta || 'Notes · Filed as I go'}</p>
-        <p class="card-blurb">${e.blurb}</p>
-      </div>`;
+      <span class="retro-tag ${tagClass}">${tagLabel}</span>
+      <div class="entry-header">
+        <span>${e.name}</span>
+        <span class="entry-date">${e.meta || 'Notes · Filed as I go'}</span>
+      </div>
+      ${e.blurb ? `<p>${e.blurb}</p>` : ''}`;
     return clickable
-      ? `<a class="card is-live" href="${href}"${linkAttrs}>${inner}</a>`
-      : `<div class="card is-draft">${inner}</div>`;
+      ? `<a class="blog-entry" href="${href}"${linkAttrs}>${inner}</a>`
+      : `<div class="blog-entry is-draft">${inner}</div>`;
   }).join('');
 </script>
 
