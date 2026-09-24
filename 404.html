@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>★ 404 — Notes — lucidité ★</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000033">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    background-color:#000033;
+    background-image:
+      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+      radial-gradient(#00FFFF, rgba(0,255,255,.1) 1px, transparent 2px);
+    background-size:550px 550px, 350px 350px;
+    background-position:0 0, 40px 60px;
+    font-family:Tahoma, Verdana, Arial, sans-serif; font-size:12px;
+    min-height:100vh; display:grid; place-items:center; padding:16px;
+  }
+  .dialog{
+    width:100%; max-width:380px;
+    background:#D4D0C8; border:2px outset #FFFFFF;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+  }
+  .titlebar{
+    display:flex; justify-content:space-between; align-items:center;
+    background:linear-gradient(90deg, #000080, #1084d0);
+    color:#fff; font-weight:bold; padding:3px 4px 3px 6px;
+  }
+  .titlebar .x{
+    width:16px; height:14px; line-height:10px; text-align:center;
+    background:#D4D0C8; color:#000; border:1px outset #fff; font-size:11px;
+    text-decoration:none;
+  }
+  .body{ display:flex; gap:14px; padding:18px 16px 10px; }
+  .icon{
+    flex-shrink:0; width:32px; height:32px; border-radius:50%;
+    background:#CC0000; color:#fff; font:bold 22px/32px Arial, sans-serif; text-align:center;
+    box-shadow:inset -2px -2px 0 rgba(0,0,0,0.25);
+  }
+  .body p{ margin:0 0 6px; line-height:1.45; }
+  .body code{ font-family:"Courier New", monospace; word-break:break-all; }
+  .buttons{ display:flex; justify-content:center; flex-wrap:wrap; gap:8px; padding:8px 16px 16px; }
+  .buttons a{
+    min-width:84px; text-align:center; padding:4px 10px;
+    background:#D4D0C8; color:#000; text-decoration:none;
+    border:2px outset #FFFFFF;
+  }
+  .buttons a:first-child{ outline:1px dotted #000; outline-offset:-5px; }
+  .buttons a:active{ border-style:inset; }
+</style>
+</head>
+<body>
+<div class="dialog" role="alertdialog" aria-labelledby="t">
+  <div class="titlebar"><span id="t">notes.exe — Error</span><a class="x" href="https://notes.varunagarwal.com/" aria-label="Close">×</a></div>
+  <div class="body">
+    <div class="icon" aria-hidden="true">×</div>
+    <div>
+      <p><b>404: File not found.</b></p>
+      <p>Cannot find <code id="path"></code>.</p>
+    </div>
+  </div>
+  <div class="buttons">
+    <a href="https://notes.varunagarwal.com/">OK</a>
+    <a id="search-link" href="https://blog.varunagarwal.com/" hidden>Search…</a>
+  </div>
+</div>
+<script>
+  document.getElementById('path').textContent = decodeURIComponent(location.pathname);
+  const seg = decodeURIComponent(location.pathname).split('/').filter(Boolean).pop() || '';
+  const term = seg.replace(/\.html?$/, '').replace(/[-_+]+/g, ' ').trim();
+  if (term) {
+    const a = document.getElementById('search-link');
+    a.href = 'https://blog.varunagarwal.com/?q=' + encodeURIComponent(term);
+    a.hidden = false;
+  }
+</script>
+</body>
+</html>
