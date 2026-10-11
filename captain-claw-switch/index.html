@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>★ Captain Claw on Switch · AI 7/7 — Notes — lucidité ★</title>
-<meta name="description" content="Porting a 1997 pirate-cat platformer to the Nintendo Switch as native homebrew. AI involvement declared: 7 of 7, AI-Generated.">
+<meta name="description" content="AI-generated project summary: how Claude ported Captain Claw (1997) to the Nintendo Switch as native homebrew for Varun. AI involvement: 7 of 7, AI-Generated.">
 <meta name="theme-color" content="#000033">
 <link rel="stylesheet" href="../assets/retro.css">
 </head>
@@ -19,7 +19,7 @@
 
   <div class="news-ticker">
     <marquee scrollamount="4" behavior="scroll" direction="left">
-      +++ FILED UNDER: Projects +++ SDL2 · devkitPro · libnx · OpenClaw +++ Runs from the SD card, uses your own game files +++
+      +++ FILED UNDER: Projects +++ AI-GENERATED PROJECT SUMMARY +++ SDL2 · devkitPro · libnx · OpenClaw +++ Runs from the SD card, uses your own game files +++
     </marquee>
   </div>
 
@@ -50,44 +50,40 @@
       <h2 class="heading">Captain Claw on Switch</h2>
       <p class="byline-retro">Projects · AI involvement 7/7 — AI-Generated · Filed as I go</p>
 
-      <div class="retro-figure">
-        <img src="img/switch-01.jpg" alt="Captain Claw running on a Nintendo Switch" onerror="this.closest('.retro-figure').style.display='none'">
-        <figcaption>Your photo of the Switch running it goes here.</figcaption>
+      <div class="declaration-box">
+        <p class="label">AI-generated project summary</p>
+        <p class="value">This page was written by Claude (Anthropic), an AI, from the working log of the project. It is not Varun's writing. "I" below means Claude; Varun is the person who set the goal, supplied the game files and tested everything on his own Switch.</p>
       </div>
 
-      <p data-edit="cc-intro">I wanted a classic running natively on a modded Switch, not through an emulator. The first idea was an ICO port, which turned out to be the wrong size of project. Captain Claw (Monolith Productions, 1997) was a better fit, because a community engine rewrite of it already exists: <a href="https://github.com/pjasicek/OpenClaw">OpenClaw</a>, by pjasicek, a from-scratch C++ engine on SDL2 that reads the original game's data files.</p>
+      <p data-edit="cc-intro">Varun wanted a classic game running natively on his modded Switch, not through an emulator. We started with an ICO port and ended up with Captain Claw (Monolith Productions, 1997), because a community engine rewrite of it already exists: <a href="https://github.com/pjasicek/OpenClaw">OpenClaw</a> by pjasicek, a from-scratch C++ engine on SDL2 that reads the original game's data files. I did the porting work.</p>
 
       <h3 class="device-heading">Why not ICO.</h3>
-      <p data-edit="cc-ico">The ICO PC port draws through Vulkan, and homebrew on the Switch does not get Vulkan. It would have needed a new renderer, a new platform layer, and no promise of playable speed. A 2D game on SDL2 only needs the toolchain and some glue.</p>
+      <p data-edit="cc-ico">The ICO PC port draws through Vulkan, and Switch homebrew does not get Vulkan. I judged it would need a new renderer and a new platform layer with no promise of playable speed, so I told Varun it was the wrong size of project. A 2D game on SDL2 only needs the toolchain and some glue.</p>
 
-      <h3 class="device-heading">What it took.</h3>
-      <p data-edit="cc-build">The build uses devkitPro (devkitA64, libnx and the Switch builds of SDL2). A Switch target went into OpenClaw's CMake files. The game runs from a folder on the SD card with your own copy of the game's data, which is not included anywhere on this page or in the build.</p>
-      <p data-edit="cc-glue">The rest was glue. OpenClaw only understood a keyboard, so controller buttons are translated into the key presses it expects, with a right-stick pointer and touch for its mouse-driven menus. Button layout lives in a small text file on the SD card so it can be changed.</p>
-
-      <h3 class="device-heading">Things I added.</h3>
+      <h3 class="device-heading">What I built.</h3>
+      <p data-edit="cc-build">I added a Switch target to OpenClaw's CMake build using devkitPro (devkitA64, libnx and the Switch builds of SDL2). The game runs from a folder on the SD card with your own copy of the game's data. The data is not included in the build or on this page.</p>
+      <p data-edit="cc-glue">OpenClaw only understood a keyboard, so I translate controller buttons into the key presses it expects, and added a right-stick pointer and touch for its mouse-driven menus. The button layout lives in a small text file on the SD card.</p>
       <ul data-edit="cc-added">
-        <li>A splash screen, icon and a credits page for everyone involved.</li>
-        <li>The original cutscenes, converted from the old Smacker video format into something the Switch can play simply, with the game's own Replay Movies menu switched back on.</li>
-        <li>A cheats menu under Options, with on-screen confirmation, and an option to unlock all levels.</li>
-        <li>An intro on/off switch and louder default volume.</li>
-        <li>A Level Guides section, still being finished: map overviews plus tips condensed from the community walkthroughs by Rich Kleinhenz.</li>
+        <li>A splash screen, an icon and a credits page for everyone involved.</li>
+        <li>The original cutscenes, converted from the old Smacker video format into JPEG frames plus audio so the Switch can play them with a small player. The game's own Replay Movies menu, which OpenClaw had switched off, is back on.</li>
+        <li>A cheats menu under Options with on-screen confirmation, and an option to unlock all levels.</li>
+        <li>An intro on/off switch and a louder default volume.</li>
+        <li>A Level Guides section: map overviews plus tips condensed from Rich Kleinhenz's community walkthroughs for levels 1 to 13. Gemini did the first-pass condensing, so read them as hints.</li>
       </ul>
 
-      <h3 class="device-heading">What went wrong along the way.</h3>
-      <p data-edit="cc-bugs">A few of these were my own doing. Quitting the game crashed the Switch app until I stopped it calling the C exit function. The first menu buttons ignored the controller entirely, because the game empties its event queue while loading and my code was waiting on an event it had already thrown away. A save file corrupted itself when I unlocked a fourteenth level the engine does not actually have. Menu cursors followed file order instead of screen order. None of it was subtle once I looked, but the Switch gives no console to look at, so I added a log file to the SD card.</p>
+      <h3 class="device-heading">What went wrong.</h3>
+      <p data-edit="cc-bugs">Most of the bugs were mine. Quitting crashed the app until I stopped it calling the C exit function. My first controller code waited for a "controller connected" event that the game had already thrown away while loading, so nothing responded. My additions to the menus were drawn in the wrong style and appended in the wrong order, so the selector jumped around. And I raised the save-game limit to fourteen levels, which wrote a save the game could not read and crashed it on the next launch. The Switch has no console to watch, so I added a log file on the SD card to find these.</p>
 
-      <h3 class="device-heading">How it was built.</h3>
-      <p data-edit="cc-ai">Claude (Anthropic) did most of the engineering under my direction; Gemini did bulk drafting, including the first pass of the level tips, which are marked as condensed and should be read as hints, not gospel. I tested on the hardware and kept deciding what the thing should be.</p>
-
-      <h3 class="device-heading">What is not done.</h3>
-      <p data-edit="cc-todo">Level 14, the last one, does not work. The original game has it, and its data is all there, but OpenClaw never implemented it: it has no description file for the level and no code at all for the final boss, Lord Omar. Between-level cutscenes are not triggered automatically either; they play from the Replay Movies menu and the intro at launch.</p>
+      <h3 class="device-heading">What the web says about level 14.</h3>
+      <p data-edit="cc-l14">Level 14, the last one, does not work, and the reason is not missing files. The original game's data for it is complete (its world, tiles, sounds, and the final boss, Lord Omar). OpenClaw simply never implemented it: the engine has no description file for the level and no code for Omar at all. The project's own tracker agrees. In 2020 the author listed "Level 14 + bossfight" among the things still to do, joking that he dreaded writing that boss fight (<a href="https://github.com/pjasicek/OpenClaw/issues/155">issue 155</a>). In March 2024 he wrote that the project had not been worked on for years and that he had no plans to finish it, adding that the later levels are playable but the bosses are not all complete (<a href="https://github.com/pjasicek/OpenClaw/issues/180">issue 180</a>). The last gameplay commit, from 2022, is titled "Level 13 playable/finishable with dummy boss". Two earlier bosses, on levels 10 and 12, were also described as dumbed down. So a Switch player gets levels 1 to 13, with some simplified boss fights, and the Load menu greys out level 14.</p>
+      <p data-edit="cc-todo">Between-level cutscenes also do not trigger automatically; they play from the Replay Movies menu and the intro at launch. The project has an open request for cutscene support that dates from 2017 (<a href="https://github.com/pjasicek/OpenClaw/issues/64">issue 64</a>).</p>
 
       <h3 class="device-heading">Credits.</h3>
       <p data-edit="cc-credits">Captain Claw © 1997 Monolith Productions, Inc. and Takarajimasha. OpenClaw by pjasicek and contributors (GPLv3). Round app icon by ans0sama. Walkthroughs by Rich Kleinhenz, hosted at <a href="https://captainclaw.net">The Claw Recluse</a>. Toolchain by devkitPro. This is an unofficial fan project and is not affiliated with any rights holder; you need your own copy of the game.</p>
 
       <div class="declaration-box">
-        <p class="label">Declared involvement for this piece — 7 / 7, AI-Generated (on the scale in <a href="../conversations/whose-idea-is-it-anyway/">Whose idea is it anyway?</a>)</p>
-        <p class="value">The idea, the choice of game, every call on what the thing should do and look like, and all the testing on a real Switch were mine. The code, the tooling, the converted movies and the menu art were produced by AI (Claude, with Gemini on the bulk drafting) from high-level instructions that I steered with feedback, and I did not write the code myself. The game, its engine and its art belong to other people, who are credited above. I rated it against my own scale as honestly as I could, and a 6 would not be unreasonable, since I curated and directed throughout.</p>
+        <p class="label">Declared involvement — 7 / 7, AI-Generated (scale from <a href="../conversations/whose-idea-is-it-anyway/">Whose idea is it anyway?</a>)</p>
+        <p class="value">I rated this one myself against that scale. The code, the build tooling, the converted movies and all the menu art were produced by AI (me, with Gemini helping on bulk drafting) from high-level instructions. Varun chose the idea and the game, steered every feature with feedback, made the calls on what to include, and tested on real hardware, and he wrote none of the code. By the scale's wording that is a 7; a 6 would not be unreasonable given how much directing and curating he did. The game, engine and art are other people's work and are credited above.</p>
       </div>
     </div>
   </div>
