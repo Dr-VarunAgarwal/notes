@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>★ Captain Claw on Switch · AI 7/7 — Notes — lucidité ★</title>
+<meta name="description" content="Porting a 1997 pirate-cat platformer to the Nintendo Switch as native homebrew. AI involvement declared: 7 of 7, AI-Generated.">
+<meta name="theme-color" content="#000033">
+<link rel="stylesheet" href="../assets/retro.css">
+</head>
+<body class="retro-body">
+
+<div id="page-container">
+
+  <div class="header-banner">
+    <h1>CAPTAIN CLAW</h1>
+    <div class="tagline">« A 1997 Pirate Cat, Ported To The Nintendo Switch »</div>
+  </div>
+
+  <div class="news-ticker">
+    <marquee scrollamount="4" behavior="scroll" direction="left">
+      +++ FILED UNDER: Projects +++ SDL2 · devkitPro · libnx · OpenClaw +++ Runs from the SD card, uses your own game files +++
+    </marquee>
+  </div>
+
+  <div class="layout-grid">
+    <div class="sidebar">
+      <div class="menu-box">
+        <div class="menu-title">Main Portal</div>
+        <ul class="nav-list">
+          <li class="nav-home"><a href="https://blog.varunagarwal.com">⌂ lucidité</a></li>
+          <li><a href="../">⮞ Notes</a></li>
+          <li><a href="https://books.varunagarwal.com">⮞ Books</a></li>
+          <li><a href="https://wander.varunagarwal.com">⮞ Wander</a></li>
+          <li><a href="https://contact.varunagarwal.com">⮞ Contact</a></li>
+        </ul>
+      </div>
+      <div class="menu-box" style="text-align:center;">
+        <div class="menu-title">Page Views</div>
+        <div class="counter-wrapper">
+          <div class="counter-label">Hits Counted</div>
+          <div class="odometer" id="hit-counter-digits"></div>
+        </div>
+      </div>
+      <div class="sidebar-root">⌂ <a href="https://varunagarwal.com">varunagarwal.com</a></div>
+    </div>
+
+    <div class="main-content">
+      <p class="eyebrow-retro"><a href="../">← Notes</a></p>
+      <h2 class="heading">Captain Claw on Switch</h2>
+      <p class="byline-retro">Projects · AI involvement 7/7 — AI-Generated · Filed as I go</p>
+
+      <div class="retro-figure">
+        <img src="img/switch-01.jpg" alt="Captain Claw running on a Nintendo Switch" onerror="this.closest('.retro-figure').style.display='none'">
+        <figcaption>Your photo of the Switch running it goes here.</figcaption>
+      </div>
+
+      <p data-edit="cc-intro">I wanted a classic running natively on a modded Switch, not through an emulator. The first idea was an ICO port, which turned out to be the wrong size of project. Captain Claw (Monolith Productions, 1997) was a better fit, because a community engine rewrite of it already exists: <a href="https://github.com/pjasicek/OpenClaw">OpenClaw</a>, by pjasicek, a from-scratch C++ engine on SDL2 that reads the original game's data files.</p>
+
+      <h3 class="device-heading">Why not ICO.</h3>
+      <p data-edit="cc-ico">The ICO PC port draws through Vulkan, and homebrew on the Switch does not get Vulkan. It would have needed a new renderer, a new platform layer, and no promise of playable speed. A 2D game on SDL2 only needs the toolchain and some glue.</p>
+
+      <h3 class="device-heading">What it took.</h3>
+      <p data-edit="cc-build">The build uses devkitPro (devkitA64, libnx and the Switch builds of SDL2). A Switch target went into OpenClaw's CMake files. The game runs from a folder on the SD card with your own copy of the game's data, which is not included anywhere on this page or in the build.</p>
+      <p data-edit="cc-glue">The rest was glue. OpenClaw only understood a keyboard, so controller buttons are translated into the key presses it expects, with a right-stick pointer and touch for its mouse-driven menus. Button layout lives in a small text file on the SD card so it can be changed.</p>
+
+      <h3 class="device-heading">Things I added.</h3>
+      <ul data-edit="cc-added">
+        <li>A splash screen, icon and a credits page for everyone involved.</li>
+        <li>The original cutscenes, converted from the old Smacker video format into something the Switch can play simply, with the game's own Replay Movies menu switched back on.</li>
+        <li>A cheats menu under Options, with on-screen confirmation, and an option to unlock all levels.</li>
+        <li>An intro on/off switch and louder default volume.</li>
+        <li>A Level Guides section, still being finished: map overviews plus tips condensed from the community walkthroughs by Rich Kleinhenz.</li>
+      </ul>
+
+      <h3 class="device-heading">What went wrong along the way.</h3>
+      <p data-edit="cc-bugs">A few of these were my own doing. Quitting the game crashed the Switch app until I stopped it calling the C exit function. The first menu buttons ignored the controller entirely, because the game empties its event queue while loading and my code was waiting on an event it had already thrown away. A save file corrupted itself when I unlocked a fourteenth level the engine does not actually have. Menu cursors followed file order instead of screen order. None of it was subtle once I looked, but the Switch gives no console to look at, so I added a log file to the SD card.</p>
+
+      <h3 class="device-heading">How it was built.</h3>
+      <p data-edit="cc-ai">Claude (Anthropic) did most of the engineering under my direction; Gemini did bulk drafting, including the first pass of the level tips, which are marked as condensed and should be read as hints, not gospel. I tested on the hardware and kept deciding what the thing should be.</p>
+
+      <h3 class="device-heading">What is not done.</h3>
+      <p data-edit="cc-todo">Level 14, the last one, does not work. The original game has it, and its data is all there, but OpenClaw never implemented it: it has no description file for the level and no code at all for the final boss, Lord Omar. Between-level cutscenes are not triggered automatically either; they play from the Replay Movies menu and the intro at launch.</p>
+
+      <h3 class="device-heading">Credits.</h3>
+      <p data-edit="cc-credits">Captain Claw © 1997 Monolith Productions, Inc. and Takarajimasha. OpenClaw by pjasicek and contributors (GPLv3). Round app icon by ans0sama. Walkthroughs by Rich Kleinhenz, hosted at <a href="https://captainclaw.net">The Claw Recluse</a>. Toolchain by devkitPro. This is an unofficial fan project and is not affiliated with any rights holder; you need your own copy of the game.</p>
+
+      <div class="declaration-box">
+        <p class="label">Declared involvement for this piece — 7 / 7, AI-Generated (on the scale in <a href="../conversations/whose-idea-is-it-anyway/">Whose idea is it anyway?</a>)</p>
+        <p class="value">The idea, the choice of game, every call on what the thing should do and look like, and all the testing on a real Switch were mine. The code, the tooling, the converted movies and the menu art were produced by AI (Claude, with Gemini on the bulk drafting) from high-level instructions that I steered with feedback, and I did not write the code myself. The game, its engine and its art belong to other people, who are credited above. I rated it against my own scale as honestly as I could, and a 6 would not be unreasonable, since I curated and directed throughout.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-bar">
+    <div class="pixel-badge badge-1">Best Viewed<br>With Curiosity</div>
+    <div class="pixel-badge badge-3">No Frameworks<br>Were Harmed</div>
+  </div>
+
+  <div class="site-footer">
+    <hr class="retro-rule">
+    lucidité — notes
+  </div>
+
+</div>
+
+<script src="../assets/retro.js"></script>
+
+</body>
+</html>
